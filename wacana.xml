@@ -407,7 +407,7 @@
 
     <header class='relative w-full h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6'>
         <div class='video-background-container'>
-            <iframe allow='autoplay; encrypted-media' allowfullscreen='allowfullscreen' class='video-foreground w-full h-full border-0 pointer-events-none' src='https://www.youtube.com/embed/kwzUqTHwaSU?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=kwzUqTHwaSU&amp;controls=0&amp;controls=0&amp;disablekb=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;playsinline=1&amp;iv_load_policy=3&amp;modestbranding=1'>
+            <iframe allow='autoplay; encrypted-media' allowfullscreen='allowfullscreen' class='video-foreground w-full h-full border-0 pointer-events-none' src='https://www.youtube.com/embed/Zh5bAHc7wPI?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=Zh5bAHc7wPI&amp;controls=0&amp;controls=0&amp;disablekb=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;playsinline=1&amp;iv_load_policy=3&amp;modestbranding=1'>
             </iframe>
         </div>
 
@@ -566,7 +566,7 @@
                     <span class='pointer-events-none absolute -bottom-px -right-px h-5 w-5 border-b-2 border-r-2 border-red-600/40 rounded-br-lg group-hover:border-red-600 transition-colors duration-500'/>
                     <div class='relative overflow-hidden rounded-xl aspect-[3/4] bg-zinc-800'>
                         <!-- GANTI LINK FOTO SEKRETARIS DI BAWAH INI -->
-                        <img alt='Foto Sekretaris Wacana Style - Indra' class='absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUcLPGHZ8MxH6hN8RqLUDEz0jEm_8_BvD2BlmlCAOCgtofByK2MjtjPgLaHKbAPfVijRnxtftkJF-QuOpGuogZNCiNhVz3s8DN8YQnjTK8bFHV_I7bMDVa0OZXRWx5mCyIBSRy4SANGTck_HXGGILvFTc7bwaxfFOf1QBw2X3EVBQDISc/s1600/image1786095034'/>
+                        <img alt='Foto Sekretaris Wacana Style - Indra' class='absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjKuHzyP8uD2lqBieymuYgL6lC4DZ9OsFtqVfdA_gFMb7x-DCXH3C35HygoNMNc34bSU5JFn9efr1t8LloICYjuQvOSL_Fe2IB3yKvIg6_kSSQO5zqWPnQK0dC4uJUD_y8YtKPPux7fbPRL_tl2jkFzJv9FVl4VW7uwpum5kBOKKtBAs8/s1600/image1786102216'/>
                         <div class='absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-transparent'/>
                         <span class='absolute top-3 left-3 inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-lg z-10'>
                             <i class='fa-solid fa-file-pen'/> Sekretaris
@@ -729,7 +729,7 @@
 
             <!-- 1. FEATURED - KOPDAR MINGGUAN -->
             <div class='g-item g-item--featured reveal' onclick='openLightbox(0)'>
-                <img alt='Kopdar Mingguan Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&amp;w=1200&amp;auto=format&amp;fit=crop'/>
+                <img alt='Kopdar Mingguan Wacana Style' loading='lazy' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2lVXBIRFpnepIrcMvric4e_DAvBbSss0iOFQiwuAv4iawm9dMP6SN6RZHxiZWVuVJWrrz4otSrtSDXp8O0gazwZ6XtszP1417fXtbBrCgnHkFHk71oXvSJjYGRi0IG3LzDCQG6pkOiOHYMoUv9Wjv46gGX_hvvcwpsrNa0VUGDcOTXbo/s1600/image1786103074=crop'/>
                 <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
                 <div class='g-overlay'>
                     <span class='g-tag'>Moment</span>
@@ -739,7 +739,7 @@
 
             <!-- 2 -->
             <div class='g-item reveal' onclick='openLightbox(1)'>
-                <img alt='Touring Senja Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1558980664-10e717b3ff0d?q=80&amp;w=800&amp;auto=format&amp;fit=crop'/>
+                <img alt='Touring Senja Wacana Style' loading='lazy' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEinbzdfqsg0FucluXyQUNgOiygGwSJx-e-Ix0a6iujH_zqizSTHpkHSm0_o01BrT4ypGeKl3Wk8X14ISwh8TkUSCBPWTwiOUQbAREhyphenhyphenxMMgUEyWEN4TFL4gElw4_S-P9hYwLgLp7dnmfzn28wXHlkR-fwaSeCzh3-_5JAfqQpn9P-6A6YM/s1600/image1786102771=crop'/>
                 <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
                 <div class='g-overlay'>
                     <span class='g-tag'>Touring</span>
@@ -749,7 +749,7 @@
 
             <!-- 3 -->
             <div class='g-item reveal' onclick='openLightbox(2)'>
-                <img alt='Ngopi Bareng Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&amp;w=800&amp;auto=format&amp;fit=crop'/>
+                <img alt='Ngopi Bareng Wacana Style' loading='lazy' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMNO1ZjX3vTD9AG3PZ1H_H83m66BvOTyli9J4UKf9kRUAEqBsw7Bhqxkr7AehLgkiJqnt1uTOUaBnm1Xa_niLZtUyFZG9wBG0agxgGsDMW1Sn03_plIvrMpje87qNdQDkihbMahJA4s8VMTzm-MMn0OldCjxvVK8FY3tKoL9BYoVF78xw/s1600/image1786103071'/>
                 <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
                 <div class='g-overlay'>
                     <span class='g-tag'>Kopdar</span>
@@ -759,7 +759,7 @@
 
             <!-- 4 -->
             <div class='g-item reveal' onclick='openLightbox(3)'>
-                <img alt='Barisan Motor Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1525160354320-d8e92641c563?q=80&amp;w=800&amp;auto=format&amp;fit=crop'/>
+                <img alt='Barisan Motor Wacana Style' loading='lazy' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2IqLOyKfk8Fxm_JD_QEwAorq29xax7odSp0JiunSIblTjdk4eMspIxQ5uaReevJN2_bC_Lzbw_5rwu6jrdIDRSygqrq0SO_4QWb4ZYoShfOrBiis8lUx77BvrjjLKHOQPqpvpUMklOR0JXOnIu08542rSEpJTDMa5p98aWbBQ01dWVgw/s1600/image1786105389=crop'/>
                 <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
                 <div class='g-overlay'>
                     <span class='g-tag'>Riding</span>
@@ -769,7 +769,7 @@
 
             <!-- 5 -->
             <div class='g-item reveal' onclick='openLightbox(4)'>
-                <img alt='Aspal Malam Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1558980395-be2a5fc71c40?q=80&amp;w=800&amp;auto=format&amp;fit=crop'/>
+                <img alt='Aspal Malam Wacana Style' loading='lazy' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEinmsgINggCiCgfjYJAp3ECH0DcpqwIo3IzWCJHHTO_yBZAaqb8NBC62Hy1j6pYpCdCEuvSfqloQMyViU8MNVe5hyphenhyphen3iQ4SQ1BaoDRJdVL-Qzk4PE1DrnOfS5bvOK16PyHBBtnzcLlGYWY14-nxHoaj-7LM2Om6InHKXd3zJyt6yo-awu8s/s1600/image1786105411=crop'/>
                 <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
                 <div class='g-overlay'>
                     <span class='g-tag'>Night Ride</span>
@@ -779,7 +779,7 @@
 
             <!-- 6. WIDE - TOURING PANTURA -->
             <div class='g-item g-item--wide reveal' onclick='openLightbox(5)'>
-                <img alt='Touring Pantura Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1518987048-93e29699e79a?q=80&amp;w=1400&amp;auto=format&amp;fit=crop'/>
+                <img alt='Touring Pantura Wacana Style' loading='lazy' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCv13nD1ay5yuICwht-DrNW3DZ47CcrfdjNYyYoAvNKXWatUKMLv1dlPXPhVaGTleTxJxMbLliw50zq8gn0eo7abdJx0_WhO3CTbaoa16mk1LREab1WJmB_Z_92s4O-m2N0toGm-R8ZVNtRuShuOdS5Rw4LsX-r3PsmZS7hhMFzmYggUg/s1600/image1786105409=crop'/>
                 <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
                 <div class='g-overlay'>
                     <span class='g-tag'>Touring</span>
@@ -789,7 +789,7 @@
 
             <!-- 7 -->
             <div class='g-item reveal' onclick='openLightbox(6)'>
-                <img alt='Warung Kopi Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1502744688674-c619d1586c9e?q=80&amp;w=800&amp;auto=format&amp;fit=crop'/>
+                <img alt='Warung Kopi Wacana Style' loading='lazy' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjCHmIW4mPcEalklo3qm1MmXwpUl1N6zyTOXNYjELr9h16mxpLtEskgaCqOj2H2d7IsWyyE_WgQP65ZFgrFT7gECm2WiMT1V7aLlxv72iQ9VIbEuYNXbaJ0GeJRWjCpwejLZjKGKP_SVsckvi3C8DjAlliKfwxI2vBuJLev4WtqXJQmwHU/s1600/image1786103074=crop'/>
                 <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
                 <div class='g-overlay'>
                     <span class='g-tag'>Kopdar</span>
@@ -799,7 +799,7 @@
 
             <!-- 8 -->
             <div class='g-item reveal' onclick='openLightbox(7)'>
-                <img alt='Camping Bareng Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?q=80&amp;w=800&amp;auto=format&amp;fit=crop'/>
+                <img alt='Camping Bareng Wacana Style' loading='lazy' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEji6pp-0nJelTd00GdX6MDki-uNt1WtjtcLLWLITqIdu_2sLuLiBEI8S-xKho_sLIGugg7k0KstxAGsxYEzupK_mrhVXa1Cf1-JNii0e6EpTuMRDQH_TyRJlqbw-zfoNVVGVGMGLadVYA0uqckoYRSzZXroypXSGRLLORTMONbCDTK0m4Y/s1600/image1786105392=crop'/>
                 <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
                 <div class='g-overlay'>
                     <span class='g-tag'>Adventure</span>
@@ -809,7 +809,7 @@
 
             <!-- 9 -->
             <div class='g-item reveal' onclick='openLightbox(8)'>
-                <img alt='Detail Motor Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&amp;w=800&amp;auto=format&amp;fit=crop'/>
+                <img alt='Detail Motor Wacana Style' loading='lazy' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6DqqhnOgMJB6GypGdqNUp2w055NiPlMutOuzPbI32cd_yubn6OyJaV9Cf6lpuxPCfP4Px-nn86JpZLBYJ0zj5yY9DBjiw9i1wlgwtIgPUBndBMSspvwLK7-kbnBW7BTYuotp-mfdm0_1ktfkxfEXUHG0pSEbKzbhH8669vauyc2bDmkc/s1600/image1786105407=crop'/>
                 <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
                 <div class='g-overlay'>
                     <span class='g-tag'>Garage</span>
@@ -819,7 +819,7 @@
 
             <!-- 10 -->
             <div class='g-item reveal' onclick='openLightbox(9)'>
-                <img alt='Satu Aspal Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?q=80&amp;w=800&amp;auto=format&amp;fit=crop'/>
+                <img alt='Satu Aspal Wacana Style' loading='lazy' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOmb_3Xc0zC75nlzZpfvLPHQgIunsGzwnsgP5fFKeoNknIs38P6PLUIXz2VN6O0PXjANvzMiHKQG-r1EQ2u-sVnwyoSXE9omhSSv9ycEpK1oLPeUKlsKCoMop35A429xAW1qPSD-IyyDWtKM-qyVvRCIXbEbvCYq0nu3m2Mn_2u9J6mQk/s1600/image1786105932=crop'/>
                 <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
                 <div class='g-overlay'>
                     <span class='g-tag'>Solidaritas</span>
@@ -829,7 +829,7 @@
 
             <!-- 11 -->
             <div class='g-item reveal' onclick='openLightbox(10)'>
-                <img alt='Kopdar Sore Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1482951164281-2c9a11d5a712?q=80&amp;w=800&amp;auto=format&amp;fit=crop'/>
+                <img alt='Kopdar Sore Wacana Style' loading='lazy' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3P-WCppyLit3Sh-J9s-SOGmbm7yJxPvjMN25zI8TzQPLh9ZMc5vm0ZG4Duwxcfw1-NyIx79UmctR6_2bxWnsMGE7EIF3qbjeBPQeBiunA2p02CMGzDWPq4VrhEHXlvC3WuKR5W_RiW3UyMZhGol9mP7AlK8QYtDGwk9rwVVfCQJPUOCA/s1600/image1786105414=crop'/>
                 <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
                 <div class='g-overlay'>
                     <span class='g-tag'>Kopdar</span>
@@ -839,7 +839,7 @@
 
             <!-- 12 -->
             <div class='g-item reveal' onclick='openLightbox(11)'>
-                <img alt='Sampai Jumpa Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&amp;w=800&amp;auto=format&amp;fit=crop'/>
+                <img alt='Sampai Jumpa Wacana Style' loading='lazy' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCmtZX1kpy8iv04bipb9wEncvXwTIO51T1NQeBqRyw7RfsZ-2Dv6EMaVKQvg6evMYPt2yi1FWYWsQqMtCZAKdGxigElQm9K4BDHBPGZOZo8FWZZCNaM27e2BkxLuOmQ4hqlWjkwiToSfu2Sll_TPDE2e6NkZF3TJJ1XLcxeIuUT6zozZA/s1600/image1786105404'/>
                 <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
                 <div class='g-overlay'>
                     <span class='g-tag'>Moment</span>
@@ -1161,18 +1161,18 @@
 
         // ===== GALERI LIGHTBOX =====
         var galleryPhotos = [
-            { src: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=1200&auto=format&fit=crop", caption: "Kopdar Mingguan Wacana Style" },
-            { src: "https://images.unsplash.com/photo-1558980664-10e717b3ff0d?q=80&w=800&auto=format&fit=crop", caption: "Touring Senja" },
-            { src: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=800&auto=format&fit=crop", caption: "Ngopi Bareng" },
-            { src: "https://images.unsplash.com/photo-1525160354320-d8e92641c563?q=80&w=800&auto=format&fit=crop", caption: "Barisan Motor" },
-            { src: "https://images.unsplash.com/photo-1558980395-be2a5fc71c40?q=80&w=800&auto=format&fit=crop", caption: "Aspal Malam" },
-            { src: "https://images.unsplash.com/photo-1518987048-93e29699e79a?q=80&w=1400&auto=format&fit=crop", caption: "Touring Pantura" },
-            { src: "https://images.unsplash.com/photo-1502744688674-c619d1586c9e?q=80&w=800&auto=format&fit=crop", caption: "Warung Kopi" },
-            { src: "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?q=80&w=800&auto=format&fit=crop", caption: "Camping Bareng" },
-            { src: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=800&auto=format&fit=crop", caption: "Detail Motor" },
-            { src: "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?q=80&w=800&auto=format&fit=crop", caption: "Satu Aspal" },
-            { src: "https://images.unsplash.com/photo-1482951164281-2c9a11d5a712?q=80&w=800&auto=format&fit=crop", caption: "Kopdar Sore" },
-            { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop", caption: "Sampai Jumpa" }
+            { src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2lVXBIRFpnepIrcMvric4e_DAvBbSss0iOFQiwuAv4iawm9dMP6SN6RZHxiZWVuVJWrrz4otSrtSDXp8O0gazwZ6XtszP1417fXtbBrCgnHkFHk71oXvSJjYGRi0IG3LzDCQG6pkOiOHYMoUv9Wjv46gGX_hvvcwpsrNa0VUGDcOTXbo/s1600/image1786103074=crop", caption: "Kopdar Mingguan" },
+            { src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEinbzdfqsg0FucluXyQUNgOiygGwSJx-e-Ix0a6iujH_zqizSTHpkHSm0_o01BrT4ypGeKl3Wk8X14ISwh8TkUSCBPWTwiOUQbAREhyphenhyphenxMMgUEyWEN4TFL4gElw4_S-P9hYwLgLp7dnmfzn28wXHlkR-fwaSeCzh3-_5JAfqQpn9P-6A6YM/s1600/image1786102771=crop", caption: "Touring Senja" },
+            { src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMNO1ZjX3vTD9AG3PZ1H_H83m66BvOTyli9J4UKf9kRUAEqBsw7Bhqxkr7AehLgkiJqnt1uTOUaBnm1Xa_niLZtUyFZG9wBG0agxgGsDMW1Sn03_plIvrMpje87qNdQDkihbMahJA4s8VMTzm-MMn0OldCjxvVK8FY3tKoL9BYoVF78xw/s1600/image1786103071", caption: "Ngopi Bareng" },
+            { src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2IqLOyKfk8Fxm_JD_QEwAorq29xax7odSp0JiunSIblTjdk4eMspIxQ5uaReevJN2_bC_Lzbw_5rwu6jrdIDRSygqrq0SO_4QWb4ZYoShfOrBiis8lUx77BvrjjLKHOQPqpvpUMklOR0JXOnIu08542rSEpJTDMa5p98aWbBQ01dWVgw/s1600/image1786105389=crop", caption: "Barisan Motor" },
+            { src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEinmsgINggCiCgfjYJAp3ECH0DcpqwIo3IzWCJHHTO_yBZAaqb8NBC62Hy1j6pYpCdCEuvSfqloQMyViU8MNVe5hyphenhyphen3iQ4SQ1BaoDRJdVL-Qzk4PE1DrnOfS5bvOK16PyHBBtnzcLlGYWY14-nxHoaj-7LM2Om6InHKXd3zJyt6yo-awu8s/s1600/image1786105411=crop", caption: "Aspal Malam" },
+            { src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCv13nD1ay5yuICwht-DrNW3DZ47CcrfdjNYyYoAvNKXWatUKMLv1dlPXPhVaGTleTxJxMbLliw50zq8gn0eo7abdJx0_WhO3CTbaoa16mk1LREab1WJmB_Z_92s4O-m2N0toGm-R8ZVNtRuShuOdS5Rw4LsX-r3PsmZS7hhMFzmYggUg/s1600/image1786105409=crop", caption: "Touring Pantura" },
+            { src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjCHmIW4mPcEalklo3qm1MmXwpUl1N6zyTOXNYjELr9h16mxpLtEskgaCqOj2H2d7IsWyyE_WgQP65ZFgrFT7gECm2WiMT1V7aLlxv72iQ9VIbEuYNXbaJ0GeJRWjCpwejLZjKGKP_SVsckvi3C8DjAlliKfwxI2vBuJLev4WtqXJQmwHU/s1600/image1786103074=crop", caption: "Warung Kopi" },
+            { src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEji6pp-0nJelTd00GdX6MDki-uNt1WtjtcLLWLITqIdu_2sLuLiBEI8S-xKho_sLIGugg7k0KstxAGsxYEzupK_mrhVXa1Cf1-JNii0e6EpTuMRDQH_TyRJlqbw-zfoNVVGVGMGLadVYA0uqckoYRSzZXroypXSGRLLORTMONbCDTK0m4Y/s1600/image1786105392=crop", caption: "Camping Bareng" },
+            { src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6DqqhnOgMJB6GypGdqNUp2w055NiPlMutOuzPbI32cd_yubn6OyJaV9Cf6lpuxPCfP4Px-nn86JpZLBYJ0zj5yY9DBjiw9i1wlgwtIgPUBndBMSspvwLK7-kbnBW7BTYuotp-mfdm0_1ktfkxfEXUHG0pSEbKzbhH8669vauyc2bDmkc/s1600/image1786105407=crop", caption: "Detail Motor" },
+            { src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOmb_3Xc0zC75nlzZpfvLPHQgIunsGzwnsgP5fFKeoNknIs38P6PLUIXz2VN6O0PXjANvzMiHKQG-r1EQ2u-sVnwyoSXE9omhSSv9ycEpK1oLPeUKlsKCoMop35A429xAW1qPSD-IyyDWtKM-qyVvRCIXbEbvCYq0nu3m2Mn_2u9J6mQk/s1600/image1786105932=crop", caption: "Satu Aspal" },
+            { src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3P-WCppyLit3Sh-J9s-SOGmbm7yJxPvjMN25zI8TzQPLh9ZMc5vm0ZG4Duwxcfw1-NyIx79UmctR6_2bxWnsMGE7EIF3qbjeBPQeBiunA2p02CMGzDWPq4VrhEHXlvC3WuKR5W_RiW3UyMZhGol9mP7AlK8QYtDGwk9rwVVfCQJPUOCA/s1600/image1786105414=crop", caption: "Kopdar Sore" },
+            { src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCmtZX1kpy8iv04bipb9wEncvXwTIO51T1NQeBqRyw7RfsZ-2Dv6EMaVKQvg6evMYPt2yi1FWYWsQqMtCZAKdGxigElQm9K4BDHBPGZOZo8FWZZCNaM27e2BkxLuOmQ4hqlWjkwiToSfu2Sll_TPDE2e6NkZF3TJJ1XLcxeIuUT6zozZA/s1600/image1786105404", caption: "Sampai Jumpa" }
         ];
         var lbIndex = 0;
 
