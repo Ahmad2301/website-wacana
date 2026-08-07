@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
 <html lang='id' xml:lang='id' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 <head>
@@ -446,7 +446,7 @@
         box-shadow: 0 10px 25px -5px rgba(239, 0, 0, 0.4);
         transform: translateY(-2px);
     }
-    .size-card input[type="radio"]:checked + div {
+    .size-card input[type=&quot;radio&quot;]:checked + div {
         border-color: #ef0000;
         background-color: rgba(239, 0, 0, 0.15);
         box-shadow: 0 0 15px rgba(239, 0, 0, 0.3);
@@ -505,9 +505,75 @@
         transition: all 0.25s ease;
         z-index: 10;
     }
-    #jaketModal .modal-close-btn:hover {
+#jaketModal .modal-close-btn:hover {
         background: #ef0000;
         border-color: #ef0000;
+    }
+
+    /* ============================================================
+       PETA KOMUNITAS MOTOR WACANA JATENG - 3D MAP SECTION
+       ============================================================ */
+    /* Tech Grid Background */
+    .tech-grid {
+        background-image:
+            linear-gradient(to right, rgba(30, 58, 138, 0.15) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(30, 58, 138, 0.15) 1px, transparent 1px);
+        background-size: 40px 40px;
+    }
+
+    /* Perspective Map Container */
+    .map-viewport {
+        perspective: 1200px;
+        perspective-origin: 50% 50%;
+    }
+
+    .map-3d-wrapper {
+        transform-style: preserve-3d;
+        transition: transform 0.15s cubic-bezier(0.1, 0.5, 0.5, 1);
+        transform: rotateX(32deg) rotateZ(-2deg) rotateY(0deg) scale(0.95);
+    }
+
+/* Glowing Effects */
+    .glow-red { filter: drop-shadow(0 0 12px rgba(239, 68, 68, 0.8)); }
+    .glow-blue { filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.8)); }
+    .glow-green { filter: drop-shadow(0 0 12px rgba(34, 197, 94, 0.8)); }
+    .glow-purple { filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.8)); }
+    .glow-cyan { filter: drop-shadow(0 0 12px rgba(6, 182, 212, 0.8)); }
+
+    .ping-circle {
+        animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes ping {
+        75%, 100% {
+            transform: scale(2.2);
+            opacity: 0;
+        }
+    }
+
+    /* Animated Dash for Connections */
+    .connection-line {
+        stroke-dasharray: 6 6;
+        animation: dash 25s linear infinite;
+    }
+
+    @keyframes dash {
+        to {
+            stroke-dashoffset: -1000;
+        }
+    }
+
+    /* Map Extrusion Depth Effect */
+    .map-depth-layer {
+        transform: translateZ(-24px);
+        filter: drop-shadow(0 25px 20px rgba(0,0,0,0.7));
+    }
+
+    .glass-panel {
+        background: rgba(13, 20, 36, 0.75);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
     }
     </style>
 </head>
@@ -552,7 +618,8 @@
                 <a class='text-gray-300 hover:text-red-500 transition-colors py-2 flex items-center gap-3' href='#pengurus' onclick='toggleMenu()'><i class='fa-solid fa-user-tie text-red-600'/> Pengurus</a>
                 <a class='text-gray-300 hover:text-red-500 transition-colors py-2 flex items-center gap-3' href='#kegiatan' onclick='toggleMenu()'><i class='fa-solid fa-calendar-day text-red-600'/> Kegiatan</a>
                 <a class='text-gray-300 hover:text-red-500 transition-colors py-2 flex items-center gap-3' href='#galeri' onclick='toggleMenu()'><i class='fa-solid fa-camera-retro text-red-600'/> Galeri</a>
-                <a class='text-gray-300 hover:text-red-500 transition-colors py-2 flex items-center gap-3' href='#peraturan' onclick='toggleMenu()'><i class='fa-solid fa-list-check text-red-600'/> Peraturan</a>
+<a class='text-gray-300 hover:text-red-500 transition-colors py-2 flex items-center gap-3' href='#peraturan' onclick='toggleMenu()'><i class='fa-solid fa-list-check text-red-600'/> Peraturan</a>
+                <a class='text-gray-300 hover:text-red-500 transition-colors py-2 flex items-center gap-3' href='#peta' onclick='toggleMenu()'><i class='fa-solid fa-map-location-dot text-red-600'/> Peta Komunitas</a>
                 <a class='text-gray-300 hover:text-red-500 transition-colors py-2 flex items-center gap-3' href='#gabung' onclick='toggleMenu()'><i class='fa-solid fa-id-card text-red-600'/> Pendaftaran</a>
                 <a class='text-gray-300 hover:text-red-500 transition-colors py-2 flex items-center gap-3' href='#kontak' onclick='toggleMenu()'><i class='fa-solid fa-comment-dots text-red-600'/> Hubungi Kami</a>
             </div>
@@ -634,14 +701,6 @@
                 </p>
 
                 <div class='grid grid-cols-2 gap-4 pt-2 sm:pt-4'>
-                    <div class='border-l-4 border-red-600 pl-3 sm:pl-4'>
-                        <h4 class='text-xl sm:text-2xl font-black text-white font-sporty'>18+</h4>
-                        <p class='text-[10px] text-gray-500 uppercase tracking-widest mt-1'>Anggota Aktif</p>
-                    </div>
-                    <div class='border-l-4 border-red-600 pl-3 sm:pl-4'>
-                        <h4 class='text-xl sm:text-2xl font-black text-white font-sporty'>5+</h4>
-                        <p class='text-[10px] text-gray-500 uppercase tracking-widest mt-1'>Kota Disinggahi</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -810,7 +869,7 @@
                             <a class='inline-flex items-center justify-center gap-1.5 bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-[10px] uppercase py-2.5 rounded shadow transition-all duration-300' href='https://wa.me/6288227908397?text=Halo%20Admin%201%20Wacana%20Style,%20saya%20mau%20tanya%20tentang%20agenda%20Touring%20mendatang' target='_blank'>
                                 <i class='fa-brands fa-whatsapp'/> Kontak 1
                             </a>
-                            <button type='button' onclick='openJaketForm()' class='inline-flex items-center justify-center gap-1.5 bg-red-600 hover:bg-red-700 text-white font-bold text-[10px] uppercase py-2.5 rounded shadow transition-all duration-300 cursor-pointer'>
+                            <button class='inline-flex items-center justify-center gap-1.5 bg-red-600 hover:bg-red-700 text-white font-bold text-[10px] uppercase py-2.5 rounded shadow transition-all duration-300 cursor-pointer' onclick='openJaketForm()' type='button'>
                                 <i class='fa fa-list-alt'/> Isi Formulir
                             </button>
                         </div>
@@ -2064,6 +2123,234 @@
       </b:widget>
     </b:section>
 
+    <!-- ====================================================================
+         SECTION PETA KOMUNITAS MOTOR WACANA JATENG (3D Interactive Map)
+         Global: Sebaran Anggota & Marker Kopdar 6 Region Pantura Jateng
+         ==================================================================== -->
+    <section class='relative w-full py-16 sm:py-24 overflow-hidden tech-grid' id='peta'>
+        <!-- Ambient Background Glows -->
+        <div class='absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none'/>
+        <div class='absolute bottom-1/3 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none'/>
+
+<div class='relative z-10 text-center mb-10 sm:mb-14 px-4'>
+            <div class='flex items-center justify-center gap-3 mb-3 sm:mb-4'>
+                <span class='h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-red-600/70'/>
+                <span class='text-red-600 uppercase text-[10px] sm:text-xs font-semibold tracking-[0.25em]'>Kenali Kami</span>
+                <span class='h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-red-600/70'/>
+            </div>
+            <h2 class='text-2xl sm:text-4xl md:text-5xl font-black text-white uppercase font-sporty tracking-tight leading-none mb-4 sm:mb-5'>
+                Wacana <span class='text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-700'>Style</span>
+            </h2>
+
+            <!-- Statistik Sebaran -->
+            <div class='flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-7'>
+                <div class='glass-panel px-4 sm:px-6 py-2.5 rounded-xl border border-red-600/30'>
+<span class='block text-lg sm:text-2xl font-black text-white font-sporty'>&#177;20</span>
+                    <span class='block text-[9px] sm:text-[10px] uppercase tracking-widest text-red-400 font-bold'>Anggota</span>
+                </div>
+                <div class='glass-panel px-4 sm:px-6 py-2.5 rounded-xl border border-red-600/30'>
+                    <span class='block text-lg sm:text-2xl font-black text-white font-sporty'>6</span>
+                    <span class='block text-[9px] sm:text-[10px] uppercase tracking-widest text-red-400 font-bold'>Wilayah</span>
+                </div>
+                <div class='glass-panel px-4 sm:px-6 py-2.5 rounded-xl border border-red-600/30'>
+                    <span class='block text-lg sm:text-2xl font-black text-white font-sporty'>1</span>
+                    <span class='block text-[9px] sm:text-[10px] uppercase tracking-widest text-red-400 font-bold'>Solidaritas</span>
+                </div>
+            </div>
+
+            <p class='text-gray-400 text-xs sm:text-sm md:text-[15px] max-w-xl mx-auto leading-relaxed mb-3'>
+                Berawal dari satu ketertarikan, berkembang menjadi sebuah keluarga.
+            </p>
+            <p class='text-gray-400 text-xs sm:text-sm md:text-[15px] max-w-2xl mx-auto leading-relaxed mb-3'>
+                Wacana Style hadir dengan anggota yang tersebar di 6 wilayah, dengan semangat yang sama untuk membangun kebersamaan, menjaga solidaritas, dan terus berkembang bersama.
+            </p>
+        </div>
+
+
+        <main class='relative flex-1 w-full max-w-6xl mx-auto flex items-center justify-center p-4 md:p-8 map-viewport overflow-hidden'>
+        
+            <!-- 3D Map Container -->
+            <div class='map-3d-wrapper relative w-full max-w-5xl aspect-[2/1] flex items-center justify-center' id='mapContainer'>
+
+                <!-- Extruded 3D Shadow Layer -->
+                <svg class='absolute inset-0 w-full h-full pointer-events-none map-depth-layer' fill='none' viewBox='0 0 1000 500'>
+                    <path d='M 50 160 L 80 100 L 150 90 L 220 85 L 300 80 L 380 90 L 450 110 L 520 120 L 600 110 L 670 40 L 760 30 L 850 70 L 950 120 L 980 200 L 930 290 L 820 330 L 730 460 L 680 470 L 610 320 L 580 300 L 480 310 L 410 320 L 310 330 L 220 330 L 130 330 L 70 280 L 50 200 Z' fill='#0e172a' stroke='#1e293b' stroke-width='4'/>
+                    <path d='M 50 160 L 50 185 L 70 305 L 130 355 L 220 355 L 310 355 L 410 345 L 480 335 L 580 325 L 610 345 L 680 495 L 730 485 L 820 355 L 930 315 L 980 225 L 980 200' fill='#070e1b' stroke='#0f172a' stroke-width='2'/>
+                </svg>
+
+                <!-- Main Central Java Vector Map -->
+                <svg class='absolute inset-0 w-full h-full drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)]' fill='none' id='mainMapSvg' viewBox='0 0 1000 500'>
+                    <defs>
+                        <linearGradient id='mapGradient' x1='0%' x2='100%' y1='0%' y2='100%'>
+                            <stop offset='0%' stop-color='#e2e8f0'/>
+                            <stop offset='50%' stop-color='#cbd5e1'/>
+                            <stop offset='100%' stop-color='#94a3b8'/>
+                        </linearGradient>
+                        <filter height='140%' id='cyanGlow' width='140%' x='-20%' y='-20%'>
+                            <feGaussianBlur result='blur' stdDeviation='6'/>
+                            <feComposite in='SourceGraphic' in2='blur' operator='over'/>
+                        </filter>
+                    </defs>
+
+                    <!-- Central Java Regency Boundaries & Base Shape -->
+                    <g class='transition-all duration-300' id='mapRegions'>
+                        <path d='M 50 160 L 80 100 L 150 90 L 220 85 L 300 80 L 380 90 L 450 110 L 520 120 L 600 110 L 670 40 L 760 30 L 850 70 L 950 120 L 980 200 L 930 290 L 820 330 L 730 460 L 680 470 L 610 320 L 580 300 L 480 310 L 410 320 L 310 330 L 220 330 L 130 330 L 70 280 Z' fill='none' filter='url(#cyanGlow)' stroke='#38bdf8' stroke-opacity='0.8' stroke-width='4'/>
+                        <path class='cursor-pointer transition-colors duration-200 hover:fill-slate-200' d='M 50 160 L 80 100 L 150 90 L 220 85 L 300 80 L 380 90 L 450 110 L 520 120 L 600 110 L 670 40 L 760 30 L 850 70 L 950 120 L 980 200 L 930 290 L 820 330 L 730 460 L 680 470 L 610 320 L 580 300 L 480 310 L 410 320 L 310 330 L 220 330 L 130 330 L 70 280 Z' fill='url(#mapGradient)' stroke='#64748b' stroke-width='2'/>
+
+                        <!-- Regency Internal Border Lines -->
+                        <path d='M 130 90 L 130 220 L 170 330' stroke='#94a3b8' stroke-dasharray='2 2' stroke-width='1.2'/>
+                        <path d='M 130 180 L 220 180 L 220 330' stroke='#94a3b8' stroke-width='1.2'/>
+                        <path d='M 220 180 L 310 170 L 310 330' stroke='#94a3b8' stroke-width='1.2'/>
+                        <path d='M 310 170 L 410 160 L 410 320' stroke='#94a3b8' stroke-width='1.2'/>
+                        <path d='M 410 160 L 480 180 L 480 310' stroke='#94a3b8' stroke-width='1.2'/>
+                        <path d='M 480 180 L 580 190 L 580 300' stroke='#94a3b8' stroke-width='1.2'/>
+                        <path d='M 580 190 L 670 120 L 610 320' stroke='#94a3b8' stroke-width='1.2'/>
+                        <path d='M 670 120 L 760 140 L 820 330' stroke='#94a3b8' stroke-width='1.2'/>
+                        <path d='M 760 140 L 850 160 L 930 290' stroke='#94a3b8' stroke-width='1.2'/>
+                        <path d='M 610 320 L 680 470' stroke='#94a3b8' stroke-width='1.2'/>
+                        
+                        <!-- Highlighted Sub-Districts / Cities -->
+                        <path class='hover:fill-red-100 transition' d='M 80 100 L 130 90 L 130 180 L 70 230 Z' fill='#e2e8f0' stroke='#cbd5e1' stroke-width='1'/>
+                        <path class='hover:fill-cyan-100 transition' d='M 220 85 L 260 83 L 260 130 L 220 130 Z' fill='#e2e8f0' stroke='#cbd5e1' stroke-width='1'/>
+                        <path class='hover:fill-red-100 transition' d='M 220 130 L 280 128 L 280 200 L 220 180 Z' fill='#e2e8f0' stroke='#cbd5e1' stroke-width='1'/>
+                        <path class='hover:fill-blue-100 transition' d='M 300 80 L 380 90 L 370 160 L 310 170 Z' fill='#e2e8f0' stroke='#cbd5e1' stroke-width='1'/>
+                        <path class='hover:fill-purple-100 transition' d='M 310 170 L 370 160 L 390 240 L 330 250 Z' fill='#e2e8f0' stroke='#cbd5e1' stroke-width='1'/>
+                    </g>
+
+                    <!-- Animated Connection Paths between Towns -->
+                    <g class='transition-opacity duration-300' id='connectionLinesGroup'>
+                        <path class='connection-line opacity-75' d='M 180 150 L 255 155 L 350 140 L 410 160 L 435 230 L 530 190' fill='none' stroke='#38bdf8' stroke-width='2'/>
+                        <path class='connection-line opacity-60' d='M 255 155 L 410 160' fill='none' stroke='#f97316' stroke-width='1.5'/>
+                        <path class='connection-line opacity-60' d='M 350 140 L 435 230' fill='none' stroke='#a855f7' stroke-width='1.5'/>
+                    </g>
+                </svg>
+
+                <!-- HTML Layer for Pins and Badges -->
+                <div class='absolute inset-0 pointer-events-none' id='pinsOverlay'>
+
+                    <!-- 1. BREBES (Red) -->
+                    <div class='pin-item absolute cursor-pointer pointer-events-auto transition-transform hover:scale-110 group' data-id='brebes' style='left: 19%; top: 22%;'>
+                        <div class='absolute -top-12 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1 bg-red-600 text-white font-extrabold text-[11px] rounded-md shadow-lg shadow-red-600/40 border border-red-400 flex items-center gap-1'>
+                            <span>BREBES</span>
+                        </div>
+                        <div class='w-[2px] h-4 bg-red-500 mx-auto -mt-6 opacity-80'/>
+                        <div class='relative flex items-center justify-center w-8 h-8 mx-auto -mt-1 glow-red'>
+                            <span class='absolute w-8 h-8 bg-red-500/40 rounded-full ping-circle'/>
+                            <div class='w-7 h-7 bg-red-600 rounded-full border-2 border-white flex items-center justify-center shadow-md'>
+                                <div class='w-2.5 h-2.5 bg-white rounded-full'/>
+                            </div>
+                        </div>
+                        <div class='w-8 h-3 bg-red-500/30 rounded-full blur-xs mx-auto -mt-1'/>
+                    </div>
+
+                    <!-- 2. KABUPATEN TEGAL (Red) -->
+                    <div class='pin-item absolute cursor-pointer pointer-events-auto transition-transform hover:scale-110 group' data-id='kab_tegal' style='left: 27%; top: 25%;'>
+                        <div class='absolute -top-12 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1 bg-red-600 text-white font-extrabold text-[11px] rounded-md shadow-lg shadow-red-600/40 border border-red-400'>
+                            <span>KABUPATEN TEGAL</span>
+                        </div>
+                        <div class='w-[2px] h-4 bg-red-500 mx-auto -mt-6 opacity-80'/>
+                        <div class='relative flex items-center justify-center w-8 h-8 mx-auto -mt-1 glow-red'>
+                            <span class='absolute w-8 h-8 bg-red-500/40 rounded-full ping-circle'/>
+                            <div class='w-7 h-7 bg-red-500 rounded-full border-2 border-white flex items-center justify-center shadow-md'>
+                                <div class='w-2.5 h-2.5 bg-white rounded-full'/>
+                            </div>
+                        </div>
+                        <div class='w-8 h-3 bg-red-500/30 rounded-full blur-xs mx-auto -mt-1'/>
+                    </div>
+
+                    <!-- 3. PEMALANG KOTA (Blue) -->
+                    <div class='pin-item absolute cursor-pointer pointer-events-auto transition-transform hover:scale-110 group' data-id='pemalang_kota' style='left: 36%; top: 21%;'>
+                        <div class='absolute -top-12 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1 bg-blue-600 text-white font-extrabold text-[11px] rounded-md shadow-lg shadow-blue-600/40 border border-blue-400'>
+                            <span>PEMALANG KOTA</span>
+                        </div>
+                        <div class='w-[2px] h-4 bg-blue-500 mx-auto -mt-6 opacity-80'/>
+                        <div class='relative flex items-center justify-center w-8 h-8 mx-auto -mt-1 glow-blue'>
+                            <span class='absolute w-8 h-8 bg-blue-500/40 rounded-full ping-circle'/>
+                            <div class='w-7 h-7 bg-blue-600 rounded-full border-2 border-white flex items-center justify-center shadow-md'>
+                                <div class='w-2.5 h-2.5 bg-white rounded-full'/>
+                            </div>
+                        </div>
+                        <div class='w-8 h-3 bg-blue-500/30 rounded-full blur-xs mx-auto -mt-1'/>
+                    </div>
+
+                    <!-- 4. SLAWI (Green) -->
+                    <div class='pin-item absolute cursor-pointer pointer-events-auto transition-transform hover:scale-110 group' data-id='slawi' style='left: 42%; top: 25%;'>
+                        <div class='absolute -top-12 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1 bg-emerald-600 text-white font-extrabold text-[11px] rounded-md shadow-lg shadow-emerald-600/40 border border-emerald-400'>
+                            <span>SLAWI</span>
+                        </div>
+                        <div class='w-[2px] h-4 bg-emerald-500 mx-auto -mt-6 opacity-80'/>
+                        <div class='relative flex items-center justify-center w-8 h-8 mx-auto -mt-1 glow-green'>
+                            <span class='absolute w-8 h-8 bg-emerald-500/40 rounded-full ping-circle'/>
+                            <div class='w-7 h-7 bg-emerald-500 rounded-full border-2 border-white flex items-center justify-center shadow-md'>
+                                <div class='w-2.5 h-2.5 bg-white rounded-full'/>
+                            </div>
+                        </div>
+                        <div class='w-8 h-3 bg-emerald-500/30 rounded-full blur-xs mx-auto -mt-1'/>
+                    </div>
+
+                    <!-- 5. PEMALANG DESA / KIDUL (Purple) -->
+                    <div class='pin-item absolute cursor-pointer pointer-events-auto transition-transform hover:scale-110 group' data-id='pemalang_desa' style='left: 44%; top: 43%;'>
+                        <div class='absolute -top-14 left-1/2 -translate-x-1/2 text-center whitespace-nowrap px-3 py-1 bg-purple-700 text-white font-extrabold text-[10px] leading-tight rounded-md shadow-lg shadow-purple-600/40 border border-purple-400'>
+                            <span>PEMALANG</span><br/><span>DESA / KIDUL</span>
+                        </div>
+                        <div class='w-[2px] h-4 bg-purple-500 mx-auto -mt-6 opacity-80'/>
+                        <div class='relative flex items-center justify-center w-8 h-8 mx-auto -mt-1 glow-purple'>
+                            <span class='absolute w-8 h-8 bg-purple-500/40 rounded-full ping-circle'/>
+                            <div class='w-7 h-7 bg-purple-600 rounded-full border-2 border-white flex items-center justify-center shadow-md'>
+                                <div class='w-2.5 h-2.5 bg-white rounded-full'/>
+                            </div>
+                        </div>
+                        <div class='w-8 h-3 bg-purple-500/30 rounded-full blur-xs mx-auto -mt-1'/>
+                    </div>
+
+                    <!-- 6. TEGAL KOTA (Cyan) -->
+                    <div class='pin-item absolute cursor-pointer pointer-events-auto transition-transform hover:scale-110 group' data-id='tegal_kota' style='left: 54%; top: 35%;'>
+                        <div class='absolute -top-12 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1 bg-cyan-600 text-white font-extrabold text-[11px] rounded-md shadow-lg shadow-cyan-500/40 border border-cyan-300'>
+                            <span>TEGAL KOTA</span>
+                        </div>
+                        <div class='w-[2px] h-4 bg-cyan-400 mx-auto -mt-6 opacity-80'/>
+                        <div class='relative flex items-center justify-center w-8 h-8 mx-auto -mt-1 glow-cyan'>
+                            <span class='absolute w-8 h-8 bg-cyan-400/40 rounded-full ping-circle'/>
+                            <div class='w-7 h-7 bg-cyan-400 rounded-full border-2 border-white flex items-center justify-center shadow-md'>
+                                <div class='w-2.5 h-2.5 bg-white rounded-full'/>
+                            </div>
+                        </div>
+                        <div class='w-8 h-3 bg-cyan-400/30 rounded-full blur-xs mx-auto -mt-1'/>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+        <!-- Legend Overlay Box -->
+        <div class='relative z-20 max-w-6xl mx-auto px-4 sm:px-6 pb-3'>
+            <div class='glass-panel p-3 md:p-4 rounded-xl border border-slate-700/60 flex items-center gap-3 md:gap-4 max-w-sm shadow-2xl mx-auto md:mx-0'>
+                <div class='relative w-12 h-12 flex-shrink-0 bg-slate-900/90 rounded-full border border-red-600/40 flex items-center justify-center shadow-inner'>
+                    <i class='fa-solid fa-motorcycle text-red-500 text-xl animate-pulse'/>
+                    <span class='absolute -top-1 font-bold text-[9px] text-red-400'>W</span>
+                </div>
+                <div class='border-r border-slate-700/60 pr-4'>
+<h2 class='text-sm font-extrabold tracking-wider text-white uppercase leading-none'>WACANA MOTOR CLUB</h2>
+                    <p class='text-[10px] font-semibold tracking-widest text-red-500 uppercase mt-1'>20 MEMBERS &amp;bull; 6 WILAYAH</p>
+                       <div>
+                        <p class='text-xs text-slate-400'>Tegal Kota</p>
+                        <p class='text-xs text-slate-400'>Kabupaten Tegal</p>
+                        <p class='text-xs text-slate-400'>Pemalang Kota</p>
+                        <p class='text-xs text-slate-400'>Pemalang Kidul</p>
+                        <p class='text-xs text-slate-400'>Slawi</p>
+                        <p class='text-xs text-slate-400'>Brebes</p>
+                    </div>
+                </div>
+                <div class='w-20 h-10 bg-slate-900/80 rounded border border-slate-800 relative overflow-hidden flex items-center justify-center p-1'>
+                    <svg class='w-full h-full opacity-60' viewBox='0 0 100 40'>
+                        <path d='M 5 20 L 25 18 L 45 22 L 70 20 L 90 25 L 95 30 L 75 32 L 50 28 L 20 30 Z' fill='#475569'/>
+                        <path class='animate-pulse' d='M 35 21 L 52 22 L 50 28 L 36 27 Z' fill='#f97316'/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class='bg-black py-12 sm:py-16 px-4 sm:px-6 md:px-12 border-t border-zinc-900 relative z-20' id='kontak'>
         <div class='max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left'>
             <div>
@@ -2293,7 +2580,7 @@
     <!-- ===== MODAL FORMULIR PLANNING JAKET WACANA ===== -->
     <div id='jaketModal'>
         <div class='modal-inner relative'>
-            <button class='modal-close-btn' onclick='closeJaketForm()' aria-label='Tutup'><i class='fa-solid fa-xmark'/></button>
+            <button aria-label='Tutup' class='modal-close-btn' onclick='closeJaketForm()'><i class='fa-solid fa-xmark'/></button>
 
             <div class='max-w-3xl mx-auto w-full'>
                 <!-- Brand Header -->
@@ -2347,37 +2634,34 @@
                 </div>
 
                 <!-- Order Form Container -->
-                <form id='jaketForm' class='glass-card rounded-2xl p-5 sm:p-8 shadow-2xl space-y-5'>
+                <form class='glass-card rounded-2xl p-5 sm:p-8 shadow-2xl space-y-5' id='jaketForm'>
 
                     <!-- Input 1: Nama Lengkap -->
                     <div>
-                        <label for='namaLengkap' class='block text-sm font-medium text-slate-200 mb-2'>
+                        <label class='block text-sm font-medium text-slate-200 mb-2' for='namaLengkap'>
                             Nama Lengkap <span class='text-custom-red font-bold'>*</span>
                         </label>
                         <div class='relative'>
                             <div class='absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400'>
                                 <i class='fa-solid fa-user'/>
                             </div>
-                            <input type='text' id='namaLengkap' name='namaLengkap' required='required' placeholder='Masukkan nama lengkap Anda'
-                                class='w-full pl-10 pr-4 py-3 bg-slate-900/80 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#ef0000] focus:border-transparent transition-all'/>
+                            <input class='w-full pl-10 pr-4 py-3 bg-slate-900/80 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#ef0000] focus:border-transparent transition-all' id='namaLengkap' name='namaLengkap' placeholder='Masukkan nama lengkap Anda' required='required' type='text'/>
                         </div>
-                        <p id='namaError' class='mt-1 text-xs text-custom-red hidden'><i class='fa-solid fa-circle-exclamation mr-1'/>Nama lengkap wajib diisi.</p>
+                        <p class='mt-1 text-xs text-custom-red hidden' id='namaError'><i class='fa-solid fa-circle-exclamation mr-1'/>Nama lengkap wajib diisi.</p>
                     </div>
 
                     <!-- Input 2: Nomor Telepon -->
                     <div>
-                        <label for='nomorTelfon' class='block text-sm font-medium text-slate-200 mb-2'>
+                        <label class='block text-sm font-medium text-slate-200 mb-2' for='nomorTelfon'>
                             Nomor Telepon / WhatsApp <span class='text-custom-red font-bold'>*</span>
                         </label>
                         <div class='relative'>
                             <div class='absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400'>
                                 <i class='fa-solid fa-phone'/>
                             </div>
-                            <input type='tel' id='nomorTelfon' name='nomorTelfon' required='required' placeholder='Contoh: 081234567890'
-                                oninput="this.value = this.value.replace(/[^0-9]/g, '')"
-                                class='w-full pl-10 pr-4 py-3 bg-slate-900/80 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#ef0000] focus:border-transparent transition-all'/>
+                            <input class='w-full pl-10 pr-4 py-3 bg-slate-900/80 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#ef0000] focus:border-transparent transition-all' id='nomorTelfon' name='nomorTelfon' oninput='this.value = this.value.replace(/[^0-9]/g, &apos;&apos;)' placeholder='Contoh: 081234567890' required='required' type='tel'/>
                         </div>
-                        <p id='telfonError' class='mt-1 text-xs text-custom-red hidden'><i class='fa-solid fa-circle-exclamation mr-1'/>Nomor telepon wajib diisi hanya dengan angka (min. 9 digit).</p>
+                        <p class='mt-1 text-xs text-custom-red hidden' id='telfonError'><i class='fa-solid fa-circle-exclamation mr-1'/>Nomor telepon wajib diisi hanya dengan angka (min. 9 digit).</p>
                     </div>
 
                     <!-- Input 3: Ukuran Jaket Selection -->
@@ -2387,84 +2671,84 @@
                         </label>
                         <div class='grid grid-cols-2 sm:grid-cols-4 gap-3'>
                             <label class='size-card cursor-pointer'>
-                                <input type='radio' name='ukuranJaket' value='S' data-extra='0' class='sr-only' onchange='calculatePrice()' required='required'/>
+                                <input class='sr-only' data-extra='0' name='ukuranJaket' onchange='calculatePrice()' required='required' type='radio' value='S'/>
                                 <div class='p-3 bg-slate-900/80 border border-slate-700 rounded-xl text-center transition-all hover:border-[#ef0000]/50'>
                                     <div class='text-lg font-bold text-white'>S</div>
                                     <div class='text-xs text-slate-400'>Rp 180.000</div>
                                 </div>
                             </label>
                             <label class='size-card cursor-pointer'>
-                                <input type='radio' name='ukuranJaket' value='M' data-extra='0' class='sr-only' onchange='calculatePrice()'/>
+                                <input class='sr-only' data-extra='0' name='ukuranJaket' onchange='calculatePrice()' type='radio' value='M'/>
                                 <div class='p-3 bg-slate-900/80 border border-slate-700 rounded-xl text-center transition-all hover:border-[#ef0000]/50'>
                                     <div class='text-lg font-bold text-white'>M</div>
                                     <div class='text-xs text-slate-400'>Rp 180.000</div>
                                 </div>
                             </label>
                             <label class='size-card cursor-pointer'>
-                                <input type='radio' name='ukuranJaket' value='L' data-extra='0' class='sr-only' onchange='calculatePrice()'/>
+                                <input class='sr-only' data-extra='0' name='ukuranJaket' onchange='calculatePrice()' type='radio' value='L'/>
                                 <div class='p-3 bg-slate-900/80 border border-slate-700 rounded-xl text-center transition-all hover:border-[#ef0000]/50'>
                                     <div class='text-lg font-bold text-white'>L</div>
                                     <div class='text-xs text-slate-400'>Rp 180.000</div>
                                 </div>
                             </label>
                             <label class='size-card cursor-pointer'>
-                                <input type='radio' name='ukuranJaket' value='XL' data-extra='0' class='sr-only' onchange='calculatePrice()'/>
+                                <input class='sr-only' data-extra='0' name='ukuranJaket' onchange='calculatePrice()' type='radio' value='XL'/>
                                 <div class='p-3 bg-slate-900/80 border border-slate-700 rounded-xl text-center transition-all hover:border-[#ef0000]/50'>
                                     <div class='text-lg font-bold text-white'>XL</div>
                                     <div class='text-xs text-slate-400'>Rp 180.000</div>
                                 </div>
                             </label>
                             <label class='size-card cursor-pointer'>
-                                <input type='radio' name='ukuranJaket' value='XXL' data-extra='10000' class='sr-only' onchange='calculatePrice()'/>
+                                <input class='sr-only' data-extra='10000' name='ukuranJaket' onchange='calculatePrice()' type='radio' value='XXL'/>
                                 <div class='p-3 bg-slate-900/80 border border-slate-700 rounded-xl text-center transition-all hover:border-[#ef0000]/50'>
                                     <div class='text-lg font-bold text-custom-red'>XXL</div>
                                     <div class='text-xs text-red-300'>Rp 190.000</div>
                                 </div>
                             </label>
                             <label class='size-card cursor-pointer'>
-                                <input type='radio' name='ukuranJaket' value='3XL' data-extra='20000' class='sr-only' onchange='calculatePrice()'/>
+                                <input class='sr-only' data-extra='20000' name='ukuranJaket' onchange='calculatePrice()' type='radio' value='3XL'/>
                                 <div class='p-3 bg-slate-900/80 border border-slate-700 rounded-xl text-center transition-all hover:border-[#ef0000]/50'>
                                     <div class='text-lg font-bold text-custom-red'>3XL</div>
                                     <div class='text-xs text-red-300'>Rp 200.000</div>
                                 </div>
                             </label>
                             <label class='size-card cursor-pointer'>
-                                <input type='radio' name='ukuranJaket' value='4XL' data-extra='30000' class='sr-only' onchange='calculatePrice()'/>
+                                <input class='sr-only' data-extra='30000' name='ukuranJaket' onchange='calculatePrice()' type='radio' value='4XL'/>
                                 <div class='p-3 bg-slate-900/80 border border-slate-700 rounded-xl text-center transition-all hover:border-[#ef0000]/50'>
                                     <div class='text-lg font-bold text-custom-red'>4XL</div>
                                     <div class='text-xs text-red-300'>Rp 210.000</div>
                                 </div>
                             </label>
                             <label class='size-card cursor-pointer'>
-                                <input type='radio' name='ukuranJaket' value='5XL' data-extra='40000' class='sr-only' onchange='calculatePrice()'/>
+                                <input class='sr-only' data-extra='40000' name='ukuranJaket' onchange='calculatePrice()' type='radio' value='5XL'/>
                                 <div class='p-3 bg-slate-900/80 border border-slate-700 rounded-xl text-center transition-all hover:border-[#ef0000]/50'>
                                     <div class='text-lg font-bold text-custom-red'>5XL</div>
                                     <div class='text-xs text-red-300'>Rp 220.000</div>
                                 </div>
                             </label>
                         </div>
-                        <p id='ukuranError' class='mt-1 text-xs text-custom-red hidden'><i class='fa-solid fa-circle-exclamation mr-1'/>Silakan pilih ukuran jaket terlebih dahulu.</p>
+                        <p class='mt-1 text-xs text-custom-red hidden' id='ukuranError'><i class='fa-solid fa-circle-exclamation mr-1'/>Silakan pilih ukuran jaket terlebih dahulu.</p>
                     </div>
 
                     <!-- Jumlah Pesanan & Total Price Display -->
                     <div class='p-4 bg-slate-900/90 rounded-xl border border-slate-800 space-y-3'>
                         <div class='flex items-center justify-between border-b border-slate-800 pb-3'>
-                            <label for='jumlahPesanan' class='text-sm font-medium text-slate-300'>
+                            <label class='text-sm font-medium text-slate-300' for='jumlahPesanan'>
                                 Jumlah Pesanan (Pcs):
                             </label>
                             <div class='flex items-center space-x-2'>
-                                <button type='button' onclick='adjustQty(-1)' class='w-8 h-8 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center justify-center font-bold text-lg'>-</button>
-                                <input type='number' id='jumlahPesanan' name='jumlahPesanan' value='1' min='1' max='100' class='w-14 text-center py-1 bg-slate-800 border border-slate-700 rounded-lg text-white font-bold text-sm focus:outline-none' onchange='calculatePrice()' readonly='readonly'/>
-                                <button type='button' onclick='adjustQty(1)' class='w-8 h-8 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center justify-center font-bold text-lg'>+</button>
+                                <button class='w-8 h-8 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center justify-center font-bold text-lg' onclick='adjustQty(-1)' type='button'>-</button>
+                                <input class='w-14 text-center py-1 bg-slate-800 border border-slate-700 rounded-lg text-white font-bold text-sm focus:outline-none' id='jumlahPesanan' max='100' min='1' name='jumlahPesanan' onchange='calculatePrice()' readonly='readonly' type='number' value='1'/>
+                                <button class='w-8 h-8 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center justify-center font-bold text-lg' onclick='adjustQty(1)' type='button'>+</button>
                             </div>
                         </div>
                         <div class='flex justify-between items-center pt-1'>
                             <div>
                                 <span class='text-xs text-slate-400 block'>Total Estimasi Biaya</span>
-                                <span id='priceBreakdown' class='text-xs text-custom-red font-medium'>Rp 180.000 x 1</span>
+                                <span class='text-xs text-custom-red font-medium' id='priceBreakdown'>Rp 180.000 x 1</span>
                             </div>
                             <div class='text-right'>
-                                <span id='totalPriceDisplay' class='text-xl sm:text-2xl font-black text-custom-red'>Rp 180.000</span>
+                                <span class='text-xl sm:text-2xl font-black text-custom-red' id='totalPriceDisplay'>Rp 180.000</span>
                             </div>
                         </div>
                     </div>
@@ -2472,15 +2756,14 @@
 <!-- Telegram Destination Settings (Hidden - fixed Chat ID) -->
                     <div class='p-4 bg-slate-900/60 rounded-xl border border-slate-800 hidden'>
                         <div class='flex items-center justify-between mb-2'>
-                            <label for='telegramChatId' class='text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5'>
+                            <label class='text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5' for='telegramChatId'>
                                 <i class='fa-brands fa-telegram text-sky-400 text-sm'/> Telegram Chat ID Tujuan
                             </label>
-                            <button type='button' onclick='toggleChatIdHelp()' class='text-xs text-sky-400 hover:text-sky-300 flex items-center gap-1'>
+                            <button class='text-xs text-sky-400 hover:text-sky-300 flex items-center gap-1' onclick='toggleChatIdHelp()' type='button'>
                                 <i class='fa-solid fa-circle-question'/> Cari Chat ID?
                             </button>
                         </div>
-<input type='text' id='telegramChatId' name='telegramChatId' value='6472603319' placeholder='Masukkan ID Telegram / Group ID (Contoh: 123456789 atau -100xxx)'
-                            class='w-full px-3 py-2 bg-slate-950 border border-slate-700 rounded-lg text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:ring-1 focus:ring-sky-500'/>
+<input class='w-full px-3 py-2 bg-slate-950 border border-slate-700 rounded-lg text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:ring-1 focus:ring-sky-500' id='telegramChatId' name='telegramChatId' placeholder='Masukkan ID Telegram / Group ID (Contoh: 123456789 atau -100xxx)' type='text' value='6472603319'/>
                         <p class='text-[11px] text-slate-500 mt-1'>
                             Pesan formulir akan dikirimkan secara otomatis ke Chat ID Telegram ini.
                         </p>
@@ -2489,7 +2772,7 @@
                     <!-- Input 4: Agreement Checkbox (Wajib) -->
                     <div class='p-4 bg-[#ef0000]/5 rounded-xl border border-[#ef0000]/20'>
                         <label class='flex items-start gap-3 cursor-pointer'>
-                            <input type='checkbox' id='persetujuanKetentuan' name='persetujuanKetentuan' required='required' class='custom-checkbox mt-1 w-5 h-5 rounded border-slate-700 text-custom-red focus:ring-[#ef0000] focus:ring-offset-slate-900 bg-slate-900'/>
+                            <input class='custom-checkbox mt-1 w-5 h-5 rounded border-slate-700 text-custom-red focus:ring-[#ef0000] focus:ring-offset-slate-900 bg-slate-900' id='persetujuanKetentuan' name='persetujuanKetentuan' required='required' type='checkbox'/>
                             <div class='text-xs text-slate-300 leading-relaxed'>
                                 <span class='font-bold text-custom-red block mb-1'>Ketentuan Pembuatan Jaket Wacana:</span>
                                 <ul class='list-disc list-inside space-y-1 text-slate-300'>
@@ -2500,15 +2783,15 @@
                                 </ul>
                             </div>
                         </label>
-                        <p id='checkboxError' class='mt-2 text-xs text-custom-red hidden'><i class='fa-solid fa-circle-exclamation mr-1'/>Anda wajib menyetujui ketentuan di atas untuk melanjutkan.</p>
+                        <p class='mt-2 text-xs text-custom-red hidden' id='checkboxError'><i class='fa-solid fa-circle-exclamation mr-1'/>Anda wajib menyetujui ketentuan di atas untuk melanjutkan.</p>
                     </div>
 
                     <!-- Submit Button -->
                     <div class='pt-1'>
-                        <button type='submit' id='btnSubmit' class='btn-red w-full py-4 px-6 rounded-xl text-white font-bold text-sm sm:text-base tracking-wide flex items-center justify-center gap-2 shadow-lg cursor-pointer'>
+                        <button class='btn-red w-full py-4 px-6 rounded-xl text-white font-bold text-sm sm:text-base tracking-wide flex items-center justify-center gap-2 shadow-lg cursor-pointer' id='btnSubmit' type='submit'>
                             <i class='fa-brands fa-telegram text-xl'/>
                             <span id='btnSubmitText'>KIRIM PEMESANAN KE TELEGRAM</span>
-                            <div id='btnSpinner' class='hidden animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full'/>
+                            <div class='hidden animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full' id='btnSpinner'/>
                         </button>
                     </div>
                 </form>
@@ -2517,9 +2800,9 @@
     </div>
 
     <!-- Modal: Help Get Chat ID -->
-    <div id='helpModal' class='fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[9999] flex items-center justify-center p-4 hidden'>
+    <div class='fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[9999] flex items-center justify-center p-4 hidden' id='helpModal'>
         <div class='bg-slate-900 border border-slate-700 rounded-2xl max-w-md w-full p-6 shadow-2xl relative space-y-4'>
-            <button onclick='toggleChatIdHelp()' class='absolute top-4 right-4 text-slate-400 hover:text-white'>
+            <button class='absolute top-4 right-4 text-slate-400 hover:text-white' onclick='toggleChatIdHelp()'>
                 <i class='fa-solid fa-xmark text-lg'/>
             </button>
             <div class='flex items-center gap-3 text-sky-400'>
@@ -2534,29 +2817,29 @@
                 <p>5. Salin ID tersebut dan tempelkan pada kolom <strong>Telegram Chat ID Tujuan</strong> di formulir ini.</p>
                 <p class='text-slate-400 italic mt-2'>*Catatan: Untuk mengirim ke Group Telegram, tambahkan Bot ini ke dalam group dan pastikan bot memiliki izin mengirim pesan.</p>
             </div>
-            <button onclick='toggleChatIdHelp()' class='w-full py-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl text-xs font-semibold text-white transition'>
+            <button class='w-full py-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl text-xs font-semibold text-white transition' onclick='toggleChatIdHelp()'>
                 Tutup &amp; Paham
             </button>
         </div>
     </div>
 
     <!-- Modal: Success / Failure Message -->
-    <div id='statusModal' class='fixed inset-0 bg-slate-950/85 backdrop-blur-md z-[9999] flex items-center justify-center p-4 hidden'>
+    <div class='fixed inset-0 bg-slate-950/85 backdrop-blur-md z-[9999] flex items-center justify-center p-4 hidden' id='statusModal'>
         <div class='bg-slate-900 border border-slate-700 rounded-2xl max-w-md w-full p-6 shadow-2xl text-center space-y-4'>
-            <div id='modalIconContainer' class='w-16 h-16 rounded-full mx-auto flex items-center justify-center text-3xl'>
+            <div class='w-16 h-16 rounded-full mx-auto flex items-center justify-center text-3xl' id='modalIconContainer'>
             </div>
-            <h3 id='modalTitle' class='text-xl font-bold text-white'></h3>
-            <p id='modalMessage' class='text-xs text-slate-300 leading-relaxed'></p>
-            <div id='modalReceipt' class='bg-slate-950 p-4 rounded-xl border border-slate-800 text-left text-xs space-y-2 hidden'>
+            <h3 class='text-xl font-bold text-white' id='modalTitle'/>
+            <p class='text-xs text-slate-300 leading-relaxed' id='modalMessage'/>
+            <div class='bg-slate-950 p-4 rounded-xl border border-slate-800 text-left text-xs space-y-2 hidden' id='modalReceipt'>
                 <div class='font-bold text-custom-red border-b border-slate-800 pb-1 mb-2'>Ringkasan Pesanan:</div>
-                <div class='flex justify-between'><span class='text-slate-400'>Nama:</span> <span id='recNama' class='font-semibold text-white'></span></div>
-                <div class='flex justify-between'><span class='text-slate-400'>No. Telp:</span> <span id='recTelp' class='font-semibold text-white'></span></div>
-                <div class='flex justify-between'><span class='text-slate-400'>Ukuran:</span> <span id='recUkuran' class='font-semibold text-custom-red'></span></div>
-                <div class='flex justify-between'><span class='text-slate-400'>Jumlah:</span> <span id='recQty' class='font-semibold text-white'></span></div>
-                <div class='flex justify-between border-t border-slate-800 pt-2'><span class='text-slate-400'>Total Harga:</span> <span id='recTotal' class='font-bold text-emerald-400 text-sm'></span></div>
+                <div class='flex justify-between'><span class='text-slate-400'>Nama:</span> <span class='font-semibold text-white' id='recNama'/></div>
+                <div class='flex justify-between'><span class='text-slate-400'>No. Telp:</span> <span class='font-semibold text-white' id='recTelp'/></div>
+                <div class='flex justify-between'><span class='text-slate-400'>Ukuran:</span> <span class='font-semibold text-custom-red' id='recUkuran'/></div>
+                <div class='flex justify-between'><span class='text-slate-400'>Jumlah:</span> <span class='font-semibold text-white' id='recQty'/></div>
+                <div class='flex justify-between border-t border-slate-800 pt-2'><span class='text-slate-400'>Total Harga:</span> <span class='font-bold text-emerald-400 text-sm' id='recTotal'/></div>
             </div>
             <div class='pt-2'>
-                <button onclick='closeStatusModal()' class='w-full py-3 bg-[#ef0000] hover:bg-[#c40000] rounded-xl text-white font-bold text-sm transition'>
+                <button class='w-full py-3 bg-[#ef0000] hover:bg-[#c40000] rounded-xl text-white font-bold text-sm transition' onclick='closeStatusModal()'>
                     Selesai &amp; Tutup
                 </button>
             </div>
