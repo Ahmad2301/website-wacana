@@ -2,8 +2,31 @@
 <!DOCTYPE html>
 <html lang='id' xml:lang='id' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 <head>
+    <!-- Google Tag Manager -->
+    <script type='text/javascript'>
+        // <![CDATA[
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-M9QS5P68');
+        // ]]>
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- Google tag (gtag.js) -->
+    <script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-2C001FLY1Y'></script>
+    <script type='text/javascript'>
+        // <![CDATA[
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-2C001FLY1Y');
+        // ]]>
+    </script>
     <meta charset='UTF-8'/>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes' name='viewport'/>
+    <meta content='MnCCcwGdus-prAb_PTcCvSPc02uVyH9i1OaQKXuyDX8' name='google-site-verification'/>
+    <script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8979322910425734'/>
     <title>Wacana Style - Komunitas Motor</title>
     
     <script type='text/javascript'>
@@ -578,6 +601,9 @@
     </style>
 </head>
 <body class='selection:bg-red-600 selection:text-white'>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe height='0' src='https://www.googletagmanager.com/ns.html?id=GTM-M9QS5P68' style='display:none;visibility:hidden' width='0'/></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <nav class='fixed top-0 left-0 w-full z-50 bg-gradient-to-b from-black/95 via-black/50 to-transparent py-3 px-4 sm:px-6 md:px-12 flex items-center justify-between gap-2 border-b border-white/5'>
         <div class='flex items-center gap-2 sm:gap-3 shrink-0'>
