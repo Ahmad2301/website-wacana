@@ -1,0 +1,1313 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html lang='id' xml:lang='id' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+    <meta charset='UTF-8'/>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes' name='viewport'/>
+    <title>Wacana Style - Komunitas Motor</title>
+    
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        (function() {
+            var uri = window.location.toString();
+            if (/[?&]m=[01]/i.test(uri)) {
+                var clean_uri = uri.replace(/[?&]m=[01]/gi, '');
+                if (clean_uri.endsWith('?')) {
+                    clean_uri = clean_uri.slice(0, -1);
+                }
+                window.history.replaceState({}, document.title, clean_uri);
+            }
+        })();
+        /* ]]> */
+    </script>
+
+    <script src='https://cdn.tailwindcss.com'/>
+    <link href='https://fonts.googleapis.com' rel='preconnect'/>
+    <link crossorigin='crossorigin' href='https://fonts.gstatic.com' rel='preconnect'/>
+    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Montserrat:wght@700;800;900&amp;display=swap' rel='stylesheet'/>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' rel='stylesheet'/>
+
+    <b:skin><![CDATA[
+    /*-----------------------------------------------
+    Blogger Theme Skin for Wacana Style (Responsive Revision)
+    Theme Color: Carbon Black & Racing Red (Matching Logo)
+    -----------------------------------------------*/
+    
+    /* Menyembunyikan elemen dan widget bawaan Blogger secara mutlak agar tidak mengacaukan landing page */
+    #blogger-default-section, 
+    .main-inner, 
+    .blog-posts, 
+    .status-msg-wrap, 
+    .no-posts,
+    .feed-links {
+        display: none !important;
+        height: 0 !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+    ]]></b:skin>
+
+    <style>
+    body {
+        font-family: &#39;Inter&#39;, sans-serif;
+        background: #0a0a0c;
+        color: #f3f4f6;
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    h1, h2, h3, .font-sporty {
+        font-family: &#39;Montserrat&#39;, sans-serif;
+    }
+
+    /* Penataan Khusus Video Latar Belakang Responsif Penuh (HP, Tablet, PC) */
+    .video-background-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 0;
+        pointer-events: none; /* Mencegah sentuhan langsung agar tidak bisa di-pause */
+    }
+
+    /* Lapisan Overlay untuk menyelimuti video agar tidak terlihat tombol jeda dan kontrol YouTube */
+    .video-background-container::after {
+        content: &#39;&#39;;
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.15);
+        z-index: 2;
+    }
+
+    /* Rasio aspek video responsif dinamis dengan proteksi perbesaran maksimal */
+    .video-foreground {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        pointer-events: none;
+        z-index: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    /* DESKTOP / PC LANDSCAPE: Video melebar penuh mengikuti rasio layar */
+    @media (min-aspect-ratio: 16/9) {
+        .video-foreground {
+            width: 100vw;
+            height: 56.25vw;
+            min-height: 100%;
+            min-width: 100%;
+            transform: translate(-50%, -50%) scale(1.35);
+        }
+    }
+
+    /* HP SELULER PORTRAIT: Video diperbesar secara agresif (scale 3.5) agar menutupi layar jangkung HP dan ter-crop full */
+    @media (max-aspect-ratio: 16/9) {
+        .video-foreground {
+            width: 177.78vh;
+            height: 100vh;
+            min-height: 100%;
+            min-width: 100%;
+            transform: translate(-50%, -50%) scale(3.5); /* Nilai zoom ditingkatkan menjadi 3.5x agar full dari ujung atas ke bawah layar HP */
+        }
+    }
+
+    /* Scrollbar Kustom */
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #0d0d0f;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #dc2626;
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #991b1b;
+    }
+
+    /* Animasi Scroll Reveal untuk Kartu Peraturan */
+    .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+    }
+@media (prefers-reduced-motion: reduce) {
+        .reveal {
+            opacity: 1;
+            transform: none;
+            transition: none;
+        }
+    }
+
+    /* ============================================================
+       GALERI - Foto Album Mosaic Grid Aesthetic
+       ============================================================ */
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 180px;
+        gap: 12px;
+    }
+
+    @media (min-width: 640px) {
+        .gallery-grid {
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 210px;
+            gap: 16px;
+        }
+    }
+
+    .g-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.06);
+        background: #16161a;
+        cursor: pointer;
+        transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .g-item:hover {
+        border-color: rgba(220,38,38,0.6);
+        box-shadow: 0 10px 35px rgba(220,38,38,0.18);
+        transform: translateY(-3px);
+    }
+
+    .g-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .g-item:hover img {
+        transform: scale(1.08);
+    }
+
+    .g-item .g-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.05) 55%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 14px;
+    }
+
+    .g-item:hover .g-overlay {
+        opacity: 1;
+    }
+
+    .g-item .g-overlay .g-tag {
+        font-size: 9px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #fca5a5;
+        font-weight: 700;
+        margin-bottom: 4px;
+    }
+
+    .g-item .g-overlay .g-caption {
+        font-size: 13px;
+        color: #fff;
+        font-weight: 700;
+        font-family: &#39;Montserrat&#39;, sans-serif;
+    }
+
+    .g-item .g-zoom {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: rgba(220,38,38,0.9);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        opacity: 0;
+        transform: scale(0.6);
+        transition: all 0.35s ease;
+        z-index: 2;
+    }
+
+    .g-item:hover .g-zoom {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .g-item--featured {
+        grid-row: span 2;
+        grid-column: span 2;
+    }
+
+    .g-item--wide {
+        grid-column: span 2;
+    }
+
+    /* Lightbox */
+    .lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(8,8,10,0.96);
+        backdrop-filter: blur(6px);
+        z-index: 9999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 20px;
+    }
+    .lightbox.open {
+        display: flex;
+    }
+    .lightbox img {
+        max-width: 92vw;
+        max-height: 78vh;
+        object-fit: contain;
+        border-radius: 10px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+        animation: lbIn 0.3s ease;
+    }
+    @keyframes lbIn {
+        from { opacity: 0; transform: scale(0.94); }
+        to { opacity: 1; transform: scale(1); }
+    }
+    .lightbox .lb-caption {
+        margin-top: 16px;
+        color: #d4d4d8;
+        font-size: 13px;
+        text-align: center;
+        max-width: 600px;
+    }
+    .lightbox .lb-counter {
+        position: absolute;
+        top: 18px;
+        right: 22px;
+        color: #71717a;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+    }
+    .lightbox .lb-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.15);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        z-index: 2;
+    }
+    .lightbox .lb-btn:hover {
+        background: #dc2626;
+        border-color: #dc2626;
+    }
+    .lightbox .lb-prev { left: 16px; }
+    .lightbox .lb-next { right: 16px; }
+    .lightbox .lb-close {
+        position: absolute;
+        top: 16px;
+        left: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.15);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.25s ease;
+    }
+    .lightbox .lb-close:hover {
+        background: #dc2626;
+        border-color: #dc2626;
+    }
+    </style>
+</head>
+<body class='selection:bg-red-600 selection:text-white'>
+
+    <nav class='absolute top-0 left-0 w-full z-50 bg-gradient-to-b from-black/95 via-black/50 to-transparent py-3 px-4 sm:px-6 md:px-12 flex items-center justify-between gap-2 border-b border-white/5'>
+        <div class='flex items-center gap-2 sm:gap-3 shrink-0'>
+            <img alt='Wacana Style Logo' class='h-10 sm:h-12 w-auto object-contain drop-shadow-[0_2px_10px_rgba(220,38,38,0.3)]' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhemceeHBQXNyIi8khxPDHco4s7LWIk1JhFR2AOTqdOvP3CMUNmfbncA-ziPUhX0KCQKtJGGWra8jkWZewlJbdeBt3axSPqTag1cMB6v1J8PY7RD55d-VHRFK9Ns-5xdF7g6RHB5hGn-tsWBl-ekT8ReMcjtiiLPYq5vHS6V2O9D76hK14/s1600/s%20(1).png'/>
+            <span class='text-sm sm:text-base md:text-xl font-black tracking-widest text-white uppercase font-sporty whitespace-nowrap'>
+                Wacana<span class='text-red-600'>Style</span>
+            </span>
+        </div>
+        
+        <div class='flex items-center gap-3 sm:gap-4'>
+            <div class='shrink-0'>
+                <a class='border border-red-600 text-red-500 hover:bg-red-600 hover:text-white transition-all duration-300 font-bold px-3 py-1.5 sm:px-5 sm:py-2 rounded text-[11px] sm:text-xs md:text-sm tracking-wide uppercase whitespace-nowrap' href='#gabung'>
+                    Gabung Club
+                </a>
+            </div>
+
+            <button aria-label='Menu' class='text-white hover:text-red-500 text-xl sm:text-2xl p-2 focus:outline-none transition-colors' onclick='toggleMenu()'>
+                <i class='fa-solid fa-bars'/>
+            </button>
+        </div>
+    </nav>
+
+    <div class='fixed inset-y-0 right-0 w-80 bg-zinc-950/98 border-l border-zinc-800 z-[100] transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col justify-between' id='sideDrawer'>
+        <div class='p-6'>
+            <div class='flex items-center justify-between pb-6 border-b border-zinc-900'>
+                <div class='flex items-center gap-2'>
+                    <img alt='Wacana Style Logo' class='h-8 w-auto object-contain' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhemceeHBQXNyIi8khxPDHco4s7LWIk1JhFR2AOTqdOvP3CMUNmfbncA-ziPUhX0KCQKtJGGWra8jkWZewlJbdeBt3axSPqTag1cMB6v1J8PY7RD55d-VHRFK9Ns-5xdF7g6RHB5hGn-tsWBl-ekT8ReMcjtiiLPYq5vHS6V2O9D76hK14/s1600/s%20(1).png'/>
+                    <span class='text-sm sm:text-base font-black tracking-wider text-white uppercase font-sporty'>
+                        Wacana<span class='text-red-600'>Style</span>
+                    </span>
+                </div>
+                <button class='text-gray-400 hover:text-red-500 text-xl p-2 focus:outline-none transition-colors' onclick='toggleMenu()'>
+                    <i class='fa-solid fa-xmark'/>
+                </button>
+            </div>
+            <div class='flex flex-col gap-6 mt-8 text-sm font-semibold tracking-wider uppercase'>
+                <a class='text-gray-300 hover:text-red-500 transition-colors py-2 flex items-center gap-3' href='#about' onclick='toggleMenu()'><i class='fa-solid fa-circle-info text-red-600'/> Tentang Kami</a>
+                <a class='text-gray-300 hover:text-red-500 transition-colors py-2 flex items-center gap-3' href='#pengurus' onclick='toggleMenu()'><i class='fa-solid fa-user-tie text-red-600'/> Pengurus</a>
+                <a class='text-gray-300 hover:text-red-500 transition-colors py-2 flex items-center gap-3' href='#kegiatan' onclick='toggleMenu()'><i class='fa-solid fa-calendar-day text-red-600'/> Kegiatan</a>
+                <a class='text-gray-300 hover:text-red-500 transition-colors py-2 flex items-center gap-3' href='#galeri' onclick='toggleMenu()'><i class='fa-solid fa-camera-retro text-red-600'/> Galeri</a>
+                <a class='text-gray-300 hover:text-red-500 transition-colors py-2 flex items-center gap-3' href='#peraturan' onclick='toggleMenu()'><i class='fa-solid fa-list-check text-red-600'/> Peraturan</a>
+                <a class='text-gray-300 hover:text-red-500 transition-colors py-2 flex items-center gap-3' href='#gabung' onclick='toggleMenu()'><i class='fa-solid fa-id-card text-red-600'/> Pendaftaran</a>
+                <a class='text-gray-300 hover:text-red-500 transition-colors py-2 flex items-center gap-3' href='#kontak' onclick='toggleMenu()'><i class='fa-solid fa-comment-dots text-red-600'/> Hubungi Kami</a>
+            </div>
+        </div>
+        <div class='p-6 border-t border-zinc-900 bg-zinc-950'>
+            <p class='text-[10px] text-gray-500 uppercase tracking-widest text-center mb-4'>Wacana Style Official</p>
+            <div class='flex justify-center gap-4'>
+                <a class='text-gray-400 hover:text-red-500 transition-colors text-sm' href='#'><i class='fa-brands fa-instagram'/></a>
+                <a class='text-gray-400 hover:text-red-500 transition-colors text-sm' href='#'><i class='fa-brands fa-youtube'/></a>
+                <a class='text-gray-400 hover:text-red-500 transition-colors text-sm' href='#'><i class='fa-brands fa-tiktok'/></a>
+            </div>
+        </div>
+    </div>
+    <div class='fixed inset-0 bg-black/60 z-[90] hidden transition-opacity duration-300' id='drawerOverlay' onclick='toggleMenu()'/>
+
+    <header class='relative w-full h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6'>
+        <div class='video-background-container'>
+            <iframe allow='autoplay; encrypted-media' allowfullscreen='allowfullscreen' class='video-foreground w-full h-full border-0 pointer-events-none' src='https://www.youtube.com/embed/kwzUqTHwaSU?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=kwzUqTHwaSU&amp;controls=0&amp;controls=0&amp;disablekb=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;playsinline=1&amp;iv_load_policy=3&amp;modestbranding=1'>
+            </iframe>
+        </div>
+
+        <div class='absolute inset-0 bg-gradient-to-r from-black/100 via-black/25 to-black/95 z-10'/>
+
+        <div class='absolute inset-0 bg-[radial-gradient(transparent_40%,rgba(10,10,12,0.9)_100%)] z-10'/>
+
+        <div class='absolute inset-0 bg-transparent z-[15] pointer-events-auto'/>
+
+        <div class='relative z-20 text-center w-full max-w-4xl mx-auto flex flex-col items-center pt-16 sm:pt-0'>
+            
+            <span class='bg-red-600/10 border border-red-600/30 text-red-400 font-semibold text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] px-3 py-1.5 sm:px-4 sm:py-2 rounded-full mb-6 inline-block whitespace-nowrap'>
+                Wacana Style Club
+            </span>
+            
+            <h1 class='text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase text-white tracking-tight leading-tight sm:leading-none mb-6 font-sporty'>
+                Roda Berputar<br/>
+                <span class='text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-700'>Cerita Terukir</span>
+            </h1>
+
+            <p class='text-gray-300 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed max-w-2xl mb-8 font-light px-2 sm:px-0'>
+                Jangan cuma <strong class='text-red-500 font-semibold'>motornya yang keren</strong>, <em class='not-italic text-red-400'>attitude pemiliknya</em> juga harus keren. Motor bukan sekadar kendaraan, tetapi cerminan karakter, tanggung jawab, dan cara kita menghargai sesama.
+            </p>
+
+            <div class='transform hover:scale-105 transition-all duration-300'>
+                <a class='inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-red-700 text-white font-bold text-xs sm:text-sm tracking-wider uppercase px-6 py-3 sm:px-8 sm:py-4 rounded shadow-[0_4px_20px_rgba(220,38,38,0.4)] hover:shadow-[0_4px_30px_rgba(220,38,38,0.6)] transition-all whitespace-nowrap' href='#about'>
+                    Tentang Kami <i class='fa-solid fa-arrow-right text-xs'/>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class='py-16 sm:py-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto relative z-20' id='about'>
+        <div class='grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center'>
+            
+            <div class='relative group rounded-2xl overflow-hidden border border-zinc-800/85'>
+                <img alt='Wacana Style Group' class='w-full h-[250px] sm:h-[400px] object-cover transition-all duration-700 ease-in-out transform group-hover:scale-105' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4sXJ9h5mkl93kXQ1Wvs4AKY5T5s-iUs-4jDGzAgu2RxNx4h8sjhFeuMGjODZs27pguoV71bB_cVc7xOjtIKxXFjRVJ7OUhzYsDtVucIsrQI2dDXNgoRysbtIWrdyY0Fp33ORH3GZoGw8Gul6_I4cqHAdnD7dovVWwvz4qk-T9kV2b9tY/s1600/ChatGPT%20Image%20Jun%2030,%202026,%2011_38_49%20AM.png'/>
+                <div class='absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent'/>
+                <div class='absolute bottom-4 left-4 sm:bottom-6 sm:left-6'>
+                    <span class='bg-red-600 text-white font-extrabold text-[10px] sm:text-xs uppercase px-2 py-0.5 sm:px-3 sm:py-1 rounded'>Solidaritas Utama</span>
+                    <h3 class='text-lg sm:text-xl font-bold mt-1.5 sm:mt-2 text-white'>Satu Rantai Persaudaraan</h3>
+                </div>
+            </div>
+
+            <div class='space-y-4 sm:space-y-6'>
+                <div class='flex items-center gap-2'>
+                    <span class='h-[2px] w-6 sm:w-8 bg-red-600'/>
+                    <span class='text-red-500 uppercase font-semibold text-xs tracking-widest'>Tentang Wacana Style</span>
+                </div>
+                <h2 class='text-2xl sm:text-4xl md:text-5xl font-black text-white uppercase leading-tight font-sporty'>
+                    Bukan Sekadar <br/><span class='text-red-500'>Rencana Perjalanan</span>
+                </h2>
+                <p class='text-gray-400 leading-relaxed text-xs sm:text-sm md:text-base'>
+                  Di <strong><em>Wacana Style</em></strong>, semua rider welcome <strong>tanpa lihat merek atau tipe motor.</strong> Mau motor standar, harian, touring, atau yang udah dimodif, semuanya bisa gabung. Di sini nggak ada yang paling keren and nggak ada yang merasa paling jago. Yang penting bisa saling kenal, saling respect, nambah teman, dan bikin momen seru bareng dalam setiap perjalanan.
+                </p>
+                <p class='text-gray-400 leading-relaxed text-xs sm:text-sm md:text-base'>
+                    Buat kami, komunitas bukan cuma soal riding bareng atau ngopi sampai malam. Lebih dari itu, ini tentang punya circle yang selalu siap diajak jalan, siap berbagi pengalaman, saling bantu kalau ada masalah, dan sama-sama bikin kenangan yang nggak gampang dilupain. Karena di <strong><em>Wacana Style</em></strong>, yang bikin perjalanan terasa beda bukan motornya, tapi orang-orang yang ada di sampingmu. <strong><em>Satu hobi, satu cerita, gas bareng sampai jadi keluarga.</em></strong>
+                </p>
+
+                <div class='grid grid-cols-2 gap-4 pt-2 sm:pt-4'>
+                    <div class='border-l-4 border-red-600 pl-3 sm:pl-4'>
+                        <h4 class='text-xl sm:text-2xl font-black text-white font-sporty'>18+</h4>
+                        <p class='text-[10px] text-gray-500 uppercase tracking-widest mt-1'>Anggota Aktif</p>
+                    </div>
+                    <div class='border-l-4 border-red-600 pl-3 sm:pl-4'>
+                        <h4 class='text-xl sm:text-2xl font-black text-white font-sporty'>5+</h4>
+                        <p class='text-[10px] text-gray-500 uppercase tracking-widest mt-1'>Kota Disinggahi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION PENGURUS - Struktur Organisasi Wacana Style
+         Desain: Bingkai Foto (Photo Frame) Modern
+         Catatan: Ganti nilai src="" pada setiap <img> dengan link foto asli.
+         ==================================================================== -->
+    <section class='py-16 sm:py-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto relative z-20' id='pengurus'>
+        <div class='text-center mb-12 sm:mb-16'>
+            <div class='flex items-center justify-center gap-3 mb-3 sm:mb-4'>
+                <span class='h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-red-600/70'/>
+                <span class='text-red-500 uppercase text-[10px] sm:text-xs font-semibold tracking-[0.25em]'>Struktur Organisasi</span>
+                <span class='h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-red-600/70'/>
+            </div>
+            <h2 class='text-2xl sm:text-4xl md:text-5xl font-black text-white uppercase font-sporty tracking-tight leading-none mb-3 sm:mb-4'>
+                Pengurus <span class='text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-700'>Wacana Style</span>
+            </h2>
+            <p class='text-gray-400 text-xs sm:text-sm md:text-[15px] max-w-xl mx-auto leading-relaxed'>
+                Deretan pengurus inti yang menggerakkan roda organisasi &#8212; dari strategi perjalanan, administrasi, hingga amanah keuangan komunitas.
+            </p>
+        </div>
+
+        <div class='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8'>
+
+            <!-- ===== KETUA : DAFA ===== -->
+            <div class='group'>
+                <div class='relative rounded-2xl p-2.5 sm:p-3 bg-gradient-to-b from-zinc-800 to-zinc-900 border border-zinc-700/80 shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-500 group-hover:border-red-600/70 group-hover:shadow-[0_15px_45px_rgba(220,38,38,0.2)] group-hover:-translate-y-1'>
+                    <span class='pointer-events-none absolute -top-px -left-px h-5 w-5 border-t-2 border-l-2 border-red-600/40 rounded-tl-lg group-hover:border-red-600 transition-colors duration-500'/>
+                    <span class='pointer-events-none absolute -top-px -right-px h-5 w-5 border-t-2 border-r-2 border-red-600/40 rounded-tr-lg group-hover:border-red-600 transition-colors duration-500'/>
+                    <span class='pointer-events-none absolute -bottom-px -left-px h-5 w-5 border-b-2 border-l-2 border-red-600/40 rounded-bl-lg group-hover:border-red-600 transition-colors duration-500'/>
+                    <span class='pointer-events-none absolute -bottom-px -right-px h-5 w-5 border-b-2 border-r-2 border-red-600/40 rounded-br-lg group-hover:border-red-600 transition-colors duration-500'/>
+                    <div class='relative overflow-hidden rounded-xl aspect-[3/4] bg-zinc-800'>
+                        <!-- GANTI LINK FOTO KETUA DI BAWAH INI -->
+                        <img alt='Foto Ketua Wacana Style - Dafa' class='absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiASeNF3uwVCgFbJgAX0_3VVlR7wDJxRdKwRlzgMSbjxB5BW6ZdKBGKeUHm9em1FSE_5ou07Mz6BYNsKX4z_ojJLl2lgzc_uWYRLF7IP5OQr5BBRVGnk_nFYrBJkJPGMswdo78TGlUEdVUycTkPZ0YyU22RqMjwxx-Hi7Xu6RsSVQv4kGo/s1600/image1786094519'/>
+                        <div class='absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-transparent'/>
+                        <span class='absolute top-3 left-3 inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-lg z-10'>
+                            <i class='fa-solid fa-crown'/> Ketua
+                        </span>
+                    </div>
+                </div>
+                <div class='text-center mt-4 sm:mt-5'>
+                    <h3 class='text-lg sm:text-xl font-bold text-white font-sporty tracking-wide'>Dafa</h3>
+                    <div class='flex items-center justify-center gap-1.5 mt-1 mb-1.5'>
+                        <span class='h-px w-6 bg-red-600/60'/>
+                        <span class='h-1 w-1 rounded-full bg-red-600'/>
+                        <span class='h-px w-6 bg-red-600/60'/>
+                    </div>
+                    <p class='text-red-500 text-[10px] sm:text-xs uppercase tracking-[0.2em] font-semibold'>Ketua</p>
+                </div>
+            </div>
+
+            <!-- ===== WAKIL KETUA : RIDO ===== -->
+            <div class='group'>
+                <div class='relative rounded-2xl p-2.5 sm:p-3 bg-gradient-to-b from-zinc-800 to-zinc-900 border border-zinc-700/80 shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-500 group-hover:border-red-600/70 group-hover:shadow-[0_15px_45px_rgba(220,38,38,0.2)] group-hover:-translate-y-1'>
+                    <span class='pointer-events-none absolute -top-px -left-px h-5 w-5 border-t-2 border-l-2 border-red-600/40 rounded-tl-lg group-hover:border-red-600 transition-colors duration-500'/>
+                    <span class='pointer-events-none absolute -top-px -right-px h-5 w-5 border-t-2 border-r-2 border-red-600/40 rounded-tr-lg group-hover:border-red-600 transition-colors duration-500'/>
+                    <span class='pointer-events-none absolute -bottom-px -left-px h-5 w-5 border-b-2 border-l-2 border-red-600/40 rounded-bl-lg group-hover:border-red-600 transition-colors duration-500'/>
+                    <span class='pointer-events-none absolute -bottom-px -right-px h-5 w-5 border-b-2 border-r-2 border-red-600/40 rounded-br-lg group-hover:border-red-600 transition-colors duration-500'/>
+                    <div class='relative overflow-hidden rounded-xl aspect-[3/4] bg-zinc-800'>
+                        <!-- GANTI LINK FOTO WAKIL KETUA DI BAWAH INI -->
+                        <img alt='Foto Wakil Ketua Wacana Style - Rido' class='absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_KEW8PDjV9VnuqCcBixecj1GFx8jtg0Z_w2rWdPlVuIn4n0U2JUP-Z7qYXhPeFNaYy_OqTgoYU0WJACmON-QcJJdUL0Y7Jus52O26P5gSy5T6gjVZrJFpyTiP-8g5ZoVqV23tEdxTiFGUsm62XlXCAQutOkKpYBJgkPFbZ4wBCPEbCEs/s1600/image1786094523'/>
+                        <div class='absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-transparent'/>
+                        <span class='absolute top-3 left-3 inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-lg z-10'>
+                            <i class='fa-solid fa-user-group'/> Wakil Ketua
+                        </span>
+                    </div>
+                </div>
+                <div class='text-center mt-4 sm:mt-5'>
+                    <h3 class='text-lg sm:text-xl font-bold text-white font-sporty tracking-wide'>Rido</h3>
+                    <div class='flex items-center justify-center gap-1.5 mt-1 mb-1.5'>
+                        <span class='h-px w-6 bg-red-600/60'/>
+                        <span class='h-1 w-1 rounded-full bg-red-600'/>
+                        <span class='h-px w-6 bg-red-600/60'/>
+                    </div>
+                    <p class='text-red-500 text-[10px] sm:text-xs uppercase tracking-[0.2em] font-semibold'>Wakil Ketua</p>
+                </div>
+            </div>
+
+            <!-- ===== SEKRETARIS : INDRA ===== -->
+            <div class='group'>
+                <div class='relative rounded-2xl p-2.5 sm:p-3 bg-gradient-to-b from-zinc-800 to-zinc-900 border border-zinc-700/80 shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-500 group-hover:border-red-600/70 group-hover:shadow-[0_15px_45px_rgba(220,38,38,0.2)] group-hover:-translate-y-1'>
+                    <span class='pointer-events-none absolute -top-px -left-px h-5 w-5 border-t-2 border-l-2 border-red-600/40 rounded-tl-lg group-hover:border-red-600 transition-colors duration-500'/>
+                    <span class='pointer-events-none absolute -top-px -right-px h-5 w-5 border-t-2 border-r-2 border-red-600/40 rounded-tr-lg group-hover:border-red-600 transition-colors duration-500'/>
+                    <span class='pointer-events-none absolute -bottom-px -left-px h-5 w-5 border-b-2 border-l-2 border-red-600/40 rounded-bl-lg group-hover:border-red-600 transition-colors duration-500'/>
+                    <span class='pointer-events-none absolute -bottom-px -right-px h-5 w-5 border-b-2 border-r-2 border-red-600/40 rounded-br-lg group-hover:border-red-600 transition-colors duration-500'/>
+                    <div class='relative overflow-hidden rounded-xl aspect-[3/4] bg-zinc-800'>
+                        <!-- GANTI LINK FOTO SEKRETARIS DI BAWAH INI -->
+                        <img alt='Foto Sekretaris Wacana Style - Indra' class='absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUcLPGHZ8MxH6hN8RqLUDEz0jEm_8_BvD2BlmlCAOCgtofByK2MjtjPgLaHKbAPfVijRnxtftkJF-QuOpGuogZNCiNhVz3s8DN8YQnjTK8bFHV_I7bMDVa0OZXRWx5mCyIBSRy4SANGTck_HXGGILvFTc7bwaxfFOf1QBw2X3EVBQDISc/s1600/image1786095034'/>
+                        <div class='absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-transparent'/>
+                        <span class='absolute top-3 left-3 inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-lg z-10'>
+                            <i class='fa-solid fa-file-pen'/> Sekretaris
+                        </span>
+                    </div>
+                </div>
+                <div class='text-center mt-4 sm:mt-5'>
+                    <h3 class='text-lg sm:text-xl font-bold text-white font-sporty tracking-wide'>Indra</h3>
+                    <div class='flex items-center justify-center gap-1.5 mt-1 mb-1.5'>
+                        <span class='h-px w-6 bg-red-600/60'/>
+                        <span class='h-1 w-1 rounded-full bg-red-600'/>
+                        <span class='h-px w-6 bg-red-600/60'/>
+                    </div>
+                    <p class='text-red-500 text-[10px] sm:text-xs uppercase tracking-[0.2em] font-semibold'>Sekretaris</p>
+                </div>
+            </div>
+
+            <!-- ===== BENDAHARA : ARINTA ===== -->
+            <div class='group'>
+                <div class='relative rounded-2xl p-2.5 sm:p-3 bg-gradient-to-b from-zinc-800 to-zinc-900 border border-zinc-700/80 shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-500 group-hover:border-red-600/70 group-hover:shadow-[0_15px_45px_rgba(220,38,38,0.2)] group-hover:-translate-y-1'>
+                    <span class='pointer-events-none absolute -top-px -left-px h-5 w-5 border-t-2 border-l-2 border-red-600/40 rounded-tl-lg group-hover:border-red-600 transition-colors duration-500'/>
+                    <span class='pointer-events-none absolute -top-px -right-px h-5 w-5 border-t-2 border-r-2 border-red-600/40 rounded-tr-lg group-hover:border-red-600 transition-colors duration-500'/>
+                    <span class='pointer-events-none absolute -bottom-px -left-px h-5 w-5 border-b-2 border-l-2 border-red-600/40 rounded-bl-lg group-hover:border-red-600 transition-colors duration-500'/>
+                    <span class='pointer-events-none absolute -bottom-px -right-px h-5 w-5 border-b-2 border-r-2 border-red-600/40 rounded-br-lg group-hover:border-red-600 transition-colors duration-500'/>
+                    <div class='relative overflow-hidden rounded-xl aspect-[3/4] bg-zinc-800'>
+                        <!-- GANTI LINK FOTO BENDAHARA DI BAWAH INI -->
+                        <img alt='Foto Bendahara Wacana Style - Arinta' class='absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5GNvQwQiLM76TrergiGTKzdH6kp8-_e2V9WG7TUX2lGP4qomWn5oEqBp_83N8BtJUs1e934rL4aD7r_YFQJiSfKWQzSZTIbtAC1Ukrc_WCIurNGtxP-g4Zc8bwOhDdGoG7PV_p7UJWp-P3A9sznleCEj1_Vi17O0IxM2EqW5S-sHwLw8/s1600/image1786094804'/>
+                        <div class='absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-transparent'/>
+                        <span class='absolute top-3 left-3 inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-lg z-10'>
+                            <i class='fa-solid fa-coins'/> Bendahara
+                        </span>
+                    </div>
+                </div>
+                <div class='text-center mt-4 sm:mt-5'>
+                    <h3 class='text-lg sm:text-xl font-bold text-white font-sporty tracking-wide'>Arinta</h3>
+                    <div class='flex items-center justify-center gap-1.5 mt-1 mb-1.5'>
+                        <span class='h-px w-6 bg-red-600/60'/>
+                        <span class='h-1 w-1 rounded-full bg-red-600'/>
+                        <span class='h-px w-6 bg-red-600/60'/>
+                    </div>
+                    <p class='text-red-500 text-[10px] sm:text-xs uppercase tracking-[0.2em] font-semibold'>Bendahara</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class='py-16 sm:py-24 bg-zinc-950 border-y border-zinc-900 px-4 sm:px-6 md:px-12 relative z-20' id='kegiatan'>
+        <div class='max-w-7xl mx-auto'>
+            <div class='text-center mb-12 sm:mb-16'>
+                <span class='text-red-500 uppercase text-xs font-semibold tracking-widest block mb-2'>Agenda &amp; Kegiatan</span>
+                <h2 class='text-3xl sm:text-5xl md:text-6xl font-black text-white uppercase font-sporty tracking-tight leading-none mb-4'>Kegiatan Wacana Style</h2>
+                <p class='text-gray-400 text-xs sm:text-sm md:text-base max-w-lg mx-auto mt-3 sm:mt-4'>
+                    Sederet keseruan yang rutin kami laksanakan untuk memupuk rasa kekeluargaan sesama pencinta matic.
+                </p>
+            </div>
+
+            <div class='grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8'>
+<div class='bg-[#121215] border border-zinc-850 rounded-2xl overflow-hidden hover:border-red-600/50 transition-all duration-300 group flex flex-col justify-between'>
+                    <div>
+                        <div class='relative overflow-hidden h-40 sm:h-48 flex items-center justify-center bg-zinc-900'>
+                            <img alt='Jaket Wacana' class='absolute inset-0 w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-opacity duration-300' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8vuifyaW1gFxgIVHvRNXo-kKNzRUa1AocRDNeGI3s9REPMySmLzE9J-TEyfi8XUGN8CtsonWtRuQS9aKeuq_SZ3subOQWgtUKEPNmCLNrYP5d_S0Iz3p3dXY31eAoKVpoIPwB8DsKTWsKif-Qa0W23__tEGPbynBzN-BNu9yJU6BgK-c/s1600/image1786092515'/>
+                            <span class='absolute top-3 right-3 sm:top-4 sm:right-4 bg-red-600 text-white font-extrabold text-[10px] uppercase px-2.5 py-0.5 rounded shadow z-10'>Jaket Wacana</span>
+                        </div>
+                        <div class='p-5 sm:p-6'>
+                            <h4 class='text-lg sm:text-xl font-bold text-white mb-2'>Planning Jaket Wacana</h4>
+                            <p class='text-gray-400 text-xs sm:text-sm leading-relaxed mb-6'>
+                                Yuk ikut Planning Jaket Wacana! Daftar sekarang dan jadi bagian dari momen seru bersama kami. Jangan sampai ketinggalan!
+                            </p>
+                            <span class='text-[11px] sm:text-xs text-red-500 font-semibold uppercase tracking-wider block mb-4'>Get Grop <i class='fa-solid fa-arrow-right-long ml-1 text-[10px]'/></span>
+                        </div>
+                    </div>
+                    <div class='px-5 pb-5 sm:px-6 sm:pb-6 flex flex-col gap-2'>
+                        <div class='grid grid-cols-2 gap-2'>
+                            <a class='inline-flex items-center justify-center gap-1.5 bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-[10px] uppercase py-2.5 rounded shadow transition-all duration-300' href='https://wa.me/6288227908397?text=Halo%20Admin%201%20Wacana%20Style,%20saya%20mau%20tanya%20tentang%20agenda%20Touring%20mendatang' target='_blank'>
+                                <i class='fa-brands fa-whatsapp'/> Kontak 1
+                            </a>
+                            <a class='inline-flex items-center justify-center gap-1.5 bg-red-600 hover:bg-red-700 text-white font-bold text-[10px] uppercase py-2.5 rounded shadow transition-all duration-300' href='https://forms.gle/cZeY45aQHdL91EE69' target='_blank'>
+                                <i class='fa fa-list-alt'/> Isi Formulir
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='bg-[#121215] border border-zinc-850 rounded-2xl overflow-hidden hover:border-red-600/50 transition-all duration-300 group flex flex-col justify-between'>
+                    <div>
+                        <div class='relative overflow-hidden h-40 sm:h-48 flex items-center justify-center bg-zinc-900'>
+                            <img alt='No Wacana' class='absolute inset-0 w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-opacity duration-300' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4sXJ9h5mkl93kXQ1Wvs4AKY5T5s-iUs-4jDGzAgu2RxNx4h8sjhFeuMGjODZs27pguoV71bB_cVc7xOjtIKxXFjRVJ7OUhzYsDtVucIsrQI2dDXNgoRysbtIWrdyY0Fp33ORH3GZoGw8Gul6_I4cqHAdnD7dovVWwvz4qk-T9kV2b9tY/s1600/ChatGPT%20Image%20Jun%2030,%202026,%2011_38_49%20AM.png'/>
+                            <span class='absolute top-3 right-3 sm:top-4 sm:right-4 bg-red-600 text-white font-extrabold text-[10px] uppercase px-2.5 py-0.5 rounded shadow z-10'>No Wacana</span>
+                        </div>
+                        <div class='p-5 sm:p-6'>
+                            <h4 class='text-lg sm:text-xl font-bold text-white mb-2'>Nantikan Kegiatan Next Time</h4>
+                            <p class='text-gray-400 text-xs sm:text-sm leading-relaxed mb-6'>
+                                Kami percaya di setiap aspal yang kami lewati ada berkah yang harus dibagikan. Bakti sosial untuk masyarakat yang membutuhkan.
+                            </p>
+                            <span class='text-[11px] sm:text-xs text-red-500 font-semibold uppercase tracking-wider block mb-4'>Nantikan Kegiatan Next Time <i class='fa-solid fa-arrow-right-long ml-1 text-[10px]'/></span>
+                        </div>
+                    </div>
+                    <div class='px-5 pb-5 sm:px-6 sm:pb-6 flex flex-col gap-2'>
+                        <div class='grid grid-cols-2 gap-2'>
+                            <a class='inline-flex items-center justify-center gap-1.5 bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-[10px] uppercase py-2.5 rounded shadow transition-all duration-300' href='https://wa.me/6288227908397?text=Halo%20Admin%201%20Wacana%20Style,%20saya%20mau%20bertanya%20mengenai%20info%20Kopdar%20Weekly' target='_blank'>
+                                <i class='fa-brands fa-whatsapp'/> Kontak 1
+                            </a>
+                            <a class='inline-flex items-center justify-center gap-1.5 bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-[10px] uppercase py-2.5 rounded shadow transition-all duration-300' href='https://wa.me/6289520273357?text=Halo%20Admin%202%20Wacana%20Style,%20saya%20mau%20bertanya%20mengenai%20info%20Kopdar%20Weekly' target='_blank'>
+                                <i class='fa-brands fa-whatsapp'/> Kontak 2
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='bg-[#121215] border border-zinc-850 rounded-2xl overflow-hidden hover:border-red-600/50 transition-all duration-300 group flex flex-col justify-between'>
+                    <div>
+                        <div class='relative overflow-hidden h-40 sm:h-48 flex items-center justify-center bg-zinc-900'>
+                            <img alt='Charity' class='absolute inset-0 w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-opacity duration-300' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4sXJ9h5mkl93kXQ1Wvs4AKY5T5s-iUs-4jDGzAgu2RxNx4h8sjhFeuMGjODZs27pguoV71bB_cVc7xOjtIKxXFjRVJ7OUhzYsDtVucIsrQI2dDXNgoRysbtIWrdyY0Fp33ORH3GZoGw8Gul6_I4cqHAdnD7dovVWwvz4qk-T9kV2b9tY/s1600/ChatGPT%20Image%20Jun%2030,%202026,%2011_38_49%20AM.png'/>
+                            <span class='absolute top-3 right-3 sm:top-4 sm:right-4 bg-red-600 text-white font-extrabold text-[10px] uppercase px-2.5 py-0.5 rounded shadow z-10'>No Wacana</span>
+                        </div>
+                        <div class='p-5 sm:p-6'>
+                            <h4 class='text-lg sm:text-xl font-bold text-white mb-2'>Nantikan Kegiatan Next Time</h4>
+                            <p class='text-gray-400 text-xs sm:text-sm leading-relaxed mb-6'>
+                                Kami percaya di setiap aspal yang kami lewati ada berkah yang harus dibagikan. Bakti sosial untuk masyarakat yang membutuhkan.
+                            </p>
+                            <span class='text-[11px] sm:text-xs text-red-500 font-semibold uppercase tracking-wider block mb-4'>Nantikan Kegiatan Next Time <i class='fa-solid fa-arrow-right-long ml-1 text-[10px]'/></span>
+                        </div>
+                    </div>
+                    <div class='px-5 pb-5 sm:px-6 sm:pb-6 flex flex-col gap-2'>
+                        <div class='grid grid-cols-2 gap-2'>
+                            <a class='inline-flex items-center justify-center gap-1.5 bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-[10px] uppercase py-2.5 rounded shadow transition-all duration-300' href='https://wa.me/6288227908397?text=Halo%20Admin%201%20Wacana%20Style,%20saya%20mau%20ikut%20berdonasi%20dalam%20kegiatan%20Charity%20Baksos' target='_blank'>
+                                <i class='fa-brands fa-whatsapp'/> Kontak 1
+                            </a>
+                            <a class='inline-flex items-center justify-center gap-1.5 bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-[10px] uppercase py-2.5 rounded shadow transition-all duration-300' href='https://wa.me/6289520273357?text=Halo%20Admin%202%20Wacana%20Style,%20saya%20mau%20ikut%20berdonasi%20dalam%20kegiatan%20Charity%20Baksos' target='_blank'>
+                                <i class='fa-brands fa-whatsapp'/> Kontak 2
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION GALERI - Foto Album Mosaic Grid Aesthetic (12 Foto)
+         Catatan: Ganti nilai src="" pada setiap <img> dengan link foto asli.
+         ==================================================================== -->
+    <section class='py-16 sm:py-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto relative z-20' id='galeri'>
+        <div class='text-center mb-12 sm:mb-16'>
+            <div class='flex items-center justify-center gap-3 mb-3 sm:mb-4'>
+                <span class='h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-red-600/70'/>
+                <span class='text-red-500 uppercase text-[10px] sm:text-xs font-semibold tracking-[0.25em]'>Foto Album</span>
+                <span class='h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-red-600/70'/>
+            </div>
+            <h2 class='text-2xl sm:text-4xl md:text-5xl font-black text-white uppercase font-sporty tracking-tight leading-none mb-3 sm:mb-4'>
+                Momen <span class='text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-700'>Kebersamaan</span>
+            </h2>
+            <p class='text-gray-400 text-xs sm:text-sm md:text-[15px] max-w-xl mx-auto leading-relaxed'>
+                Setiap aspal meninggalkan cerita. Dokumentasi perjalanan, kopdar, dan tawa yang tidak akan tergantikan bersama Wacana Style.
+            </p>
+        </div>
+
+        <div class='gallery-grid'>
+
+            <!-- 1. FEATURED - KOPDAR MINGGUAN -->
+            <div class='g-item g-item--featured reveal' onclick='openLightbox(0)'>
+                <img alt='Kopdar Mingguan Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&amp;w=1200&amp;auto=format&amp;fit=crop'/>
+                <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
+                <div class='g-overlay'>
+                    <span class='g-tag'>Moment</span>
+                    <span class='g-caption'>Kopdar Mingguan</span>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class='g-item reveal' onclick='openLightbox(1)'>
+                <img alt='Touring Senja Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1558980664-10e717b3ff0d?q=80&amp;w=800&amp;auto=format&amp;fit=crop'/>
+                <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
+                <div class='g-overlay'>
+                    <span class='g-tag'>Touring</span>
+                    <span class='g-caption'>Touring Senja</span>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class='g-item reveal' onclick='openLightbox(2)'>
+                <img alt='Ngopi Bareng Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&amp;w=800&amp;auto=format&amp;fit=crop'/>
+                <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
+                <div class='g-overlay'>
+                    <span class='g-tag'>Kopdar</span>
+                    <span class='g-caption'>Ngopi Bareng</span>
+                </div>
+            </div>
+
+            <!-- 4 -->
+            <div class='g-item reveal' onclick='openLightbox(3)'>
+                <img alt='Barisan Motor Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1525160354320-d8e92641c563?q=80&amp;w=800&amp;auto=format&amp;fit=crop'/>
+                <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
+                <div class='g-overlay'>
+                    <span class='g-tag'>Riding</span>
+                    <span class='g-caption'>Barisan Motor</span>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class='g-item reveal' onclick='openLightbox(4)'>
+                <img alt='Aspal Malam Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1558980395-be2a5fc71c40?q=80&amp;w=800&amp;auto=format&amp;fit=crop'/>
+                <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
+                <div class='g-overlay'>
+                    <span class='g-tag'>Night Ride</span>
+                    <span class='g-caption'>Aspal Malam</span>
+                </div>
+            </div>
+
+            <!-- 6. WIDE - TOURING PANTURA -->
+            <div class='g-item g-item--wide reveal' onclick='openLightbox(5)'>
+                <img alt='Touring Pantura Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1518987048-93e29699e79a?q=80&amp;w=1400&amp;auto=format&amp;fit=crop'/>
+                <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
+                <div class='g-overlay'>
+                    <span class='g-tag'>Touring</span>
+                    <span class='g-caption'>Touring Pantura</span>
+                </div>
+            </div>
+
+            <!-- 7 -->
+            <div class='g-item reveal' onclick='openLightbox(6)'>
+                <img alt='Warung Kopi Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1502744688674-c619d1586c9e?q=80&amp;w=800&amp;auto=format&amp;fit=crop'/>
+                <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
+                <div class='g-overlay'>
+                    <span class='g-tag'>Kopdar</span>
+                    <span class='g-caption'>Warung Kopi</span>
+                </div>
+            </div>
+
+            <!-- 8 -->
+            <div class='g-item reveal' onclick='openLightbox(7)'>
+                <img alt='Camping Bareng Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?q=80&amp;w=800&amp;auto=format&amp;fit=crop'/>
+                <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
+                <div class='g-overlay'>
+                    <span class='g-tag'>Adventure</span>
+                    <span class='g-caption'>Camping Bareng</span>
+                </div>
+            </div>
+
+            <!-- 9 -->
+            <div class='g-item reveal' onclick='openLightbox(8)'>
+                <img alt='Detail Motor Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&amp;w=800&amp;auto=format&amp;fit=crop'/>
+                <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
+                <div class='g-overlay'>
+                    <span class='g-tag'>Garage</span>
+                    <span class='g-caption'>Detail Motor</span>
+                </div>
+            </div>
+
+            <!-- 10 -->
+            <div class='g-item reveal' onclick='openLightbox(9)'>
+                <img alt='Satu Aspal Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?q=80&amp;w=800&amp;auto=format&amp;fit=crop'/>
+                <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
+                <div class='g-overlay'>
+                    <span class='g-tag'>Solidaritas</span>
+                    <span class='g-caption'>Satu Aspal</span>
+                </div>
+            </div>
+
+            <!-- 11 -->
+            <div class='g-item reveal' onclick='openLightbox(10)'>
+                <img alt='Kopdar Sore Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1482951164281-2c9a11d5a712?q=80&amp;w=800&amp;auto=format&amp;fit=crop'/>
+                <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
+                <div class='g-overlay'>
+                    <span class='g-tag'>Kopdar</span>
+                    <span class='g-caption'>Kopdar Sore</span>
+                </div>
+            </div>
+
+            <!-- 12 -->
+            <div class='g-item reveal' onclick='openLightbox(11)'>
+                <img alt='Sampai Jumpa Wacana Style' loading='lazy' src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&amp;w=800&amp;auto=format&amp;fit=crop'/>
+                <div class='g-zoom'><i class='fa-solid fa-magnifying-glass-plus'/></div>
+                <div class='g-overlay'>
+                    <span class='g-tag'>Moment</span>
+                    <span class='g-caption'>Sampai Jumpa</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class='py-14 sm:py-20 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto relative z-20' id='peraturan'>
+        <div class='text-center mb-10 sm:mb-14'>
+            <div class='flex items-center justify-center gap-3 mb-3 sm:mb-4'>
+                <span class='h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-red-600/70'/>
+                <span class='text-red-500 uppercase text-[10px] sm:text-xs font-semibold tracking-[0.25em]'>Kode Etik &amp; Aturan</span>
+                <span class='h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-red-600/70'/>
+            </div>
+            <h2 class='text-2xl sm:text-4xl md:text-5xl font-black text-white uppercase font-sporty tracking-tight leading-none mb-3 sm:mb-4'>
+                Peraturan <span class='text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-700'>Wacana Style</span>
+            </h2>
+            <p class='text-gray-400 text-xs sm:text-sm md:text-[15px] max-w-xl mx-auto leading-relaxed'>
+                10 nilai yang wajib dijaga setiap anggota. Bukan sekadar aturan, tapi cerminan karakter, rasa hormat, dan kebersamaan komunitas <strong class='text-red-500'>Wacana Style</strong>.
+            </p>
+        </div>
+
+        <div class='grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 grid-rules'>
+
+            <div class='reveal group relative bg-zinc-900/50 border border-zinc-800/80 rounded-xl p-4 sm:p-5 overflow-hidden hover:border-red-600/50 hover:bg-zinc-900/80 transition-all duration-300'>
+                <span class='absolute top-3 right-3 sm:top-4 sm:right-4 text-[10px] sm:text-[11px] font-black text-zinc-700 group-hover:text-red-500/70 transition-colors duration-300'>01</span>
+                <div class='flex items-center gap-3 sm:gap-3.5'>
+                    <div class='h-10 w-10 sm:h-11 sm:w-11 shrink-0 rounded-lg bg-red-600/10 border border-red-600/20 text-red-500 flex items-center justify-center text-sm sm:text-base group-hover:bg-red-600 group-hover:border-red-600 group-hover:text-white group-hover:shadow-[0_0_18px_rgba(220,38,38,0.35)] transition-all duration-300'>
+                        <i class='fa-solid fa-handshake'/>
+                    </div>
+                    <h3 class='text-xs sm:text-sm md:text-[15px] font-bold text-white uppercase tracking-wide leading-snug'>Menghargai Satu Sama Lain</h3>
+                </div>
+                <p class='text-[10px] sm:text-xs text-gray-500 leading-relaxed mt-2 sm:mt-2.5'>Respect adalah kunci. Perbedaan bukan alasan untuk bermusuhan.</p>
+            </div>
+
+            <div class='reveal group relative bg-zinc-900/50 border border-zinc-800/80 rounded-xl p-4 sm:p-5 overflow-hidden hover:border-red-600/50 hover:bg-zinc-900/80 transition-all duration-300'>
+                <span class='absolute top-3 right-3 sm:top-4 sm:right-4 text-[10px] sm:text-[11px] font-black text-zinc-700 group-hover:text-red-500/70 transition-colors duration-300'>02</span>
+                <div class='flex items-center gap-3 sm:gap-3.5'>
+                    <div class='h-10 w-10 sm:h-11 sm:w-11 shrink-0 rounded-lg bg-red-600/10 border border-red-600/20 text-red-500 flex items-center justify-center text-sm sm:text-base group-hover:bg-red-600 group-hover:border-red-600 group-hover:text-white group-hover:shadow-[0_0_18px_rgba(220,38,38,0.35)] transition-all duration-300'>
+                        <i class='fa-solid fa-brain'/>
+                    </div>
+                    <h3 class='text-xs sm:text-sm md:text-[15px] font-bold text-white uppercase tracking-wide leading-snug'>Pikirkan Ucapan dan Tindakan</h3>
+                </div>
+                <p class='text-[10px] sm:text-xs text-gray-500 leading-relaxed mt-2 sm:mt-2.5'>Setiap kata dan tindakan memiliki dampak. Bijaklah sebelum berbicara dan bertindak.</p>
+            </div>
+
+            <div class='reveal group relative bg-zinc-900/50 border border-zinc-800/80 rounded-xl p-4 sm:p-5 overflow-hidden hover:border-red-600/50 hover:bg-zinc-900/80 transition-all duration-300'>
+                <span class='absolute top-3 right-3 sm:top-4 sm:right-4 text-[10px] sm:text-[11px] font-black text-zinc-700 group-hover:text-red-500/70 transition-colors duration-300'>03</span>
+                <div class='flex items-center gap-3 sm:gap-3.5'>
+                    <div class='h-10 w-10 sm:h-11 sm:w-11 shrink-0 rounded-lg bg-red-600/10 border border-red-600/20 text-red-500 flex items-center justify-center text-sm sm:text-base group-hover:bg-red-600 group-hover:border-red-600 group-hover:text-white group-hover:shadow-[0_0_18px_rgba(220,38,38,0.35)] transition-all duration-300'>
+                        <i class='fa-solid fa-shield-halved'/>
+                    </div>
+                    <h3 class='text-xs sm:text-sm md:text-[15px] font-bold text-white uppercase tracking-wide leading-snug'>Jaga Nama Baik Tim Wacana &amp; Seluruh Anggota</h3>
+                </div>
+                <p class='text-[10px] sm:text-xs text-gray-500 leading-relaxed mt-2 sm:mt-2.5'>Di mana pun berada, sikapmu mencerminkan nama baik komunitas.</p>
+            </div>
+
+            <div class='reveal group relative bg-zinc-900/50 border border-zinc-800/80 rounded-xl p-4 sm:p-5 overflow-hidden hover:border-red-600/50 hover:bg-zinc-900/80 transition-all duration-300'>
+                <span class='absolute top-3 right-3 sm:top-4 sm:right-4 text-[10px] sm:text-[11px] font-black text-zinc-700 group-hover:text-red-500/70 transition-colors duration-300'>04</span>
+                <div class='flex items-center gap-3 sm:gap-3.5'>
+                    <div class='h-10 w-10 sm:h-11 sm:w-11 shrink-0 rounded-lg bg-red-600/10 border border-red-600/20 text-red-500 flex items-center justify-center text-sm sm:text-base group-hover:bg-red-600 group-hover:border-red-600 group-hover:text-white group-hover:shadow-[0_0_18px_rgba(220,38,38,0.35)] transition-all duration-300'>
+                        <i class='fa-solid fa-people-group'/>
+                    </div>
+                    <h3 class='text-xs sm:text-sm md:text-[15px] font-bold text-white uppercase tracking-wide leading-snug'>Jaga Solidaritas, Kekompakan &amp; Rasa Kekeluargaan</h3>
+                </div>
+                <p class='text-[10px] sm:text-xs text-gray-500 leading-relaxed mt-2 sm:mt-2.5'>Sendiri mungkin lebih cepat, bersama kita bisa melangkah lebih jauh.</p>
+            </div>
+
+            <div class='reveal group relative bg-zinc-900/50 border border-zinc-800/80 rounded-xl p-4 sm:p-5 overflow-hidden hover:border-red-600/50 hover:bg-zinc-900/80 transition-all duration-300'>
+                <span class='absolute top-3 right-3 sm:top-4 sm:right-4 text-[10px] sm:text-[11px] font-black text-zinc-700 group-hover:text-red-500/70 transition-colors duration-300'>05</span>
+                <div class='flex items-center gap-3 sm:gap-3.5'>
+                    <div class='h-10 w-10 sm:h-11 sm:w-11 shrink-0 rounded-lg bg-red-600/10 border border-red-600/20 text-red-500 flex items-center justify-center text-sm sm:text-base group-hover:bg-red-600 group-hover:border-red-600 group-hover:text-white group-hover:shadow-[0_0_18px_rgba(220,38,38,0.35)] transition-all duration-300'>
+                        <i class='fa-solid fa-face-laugh-squint'/>
+                    </div>
+                    <h3 class='text-xs sm:text-sm md:text-[15px] font-bold text-white uppercase tracking-wide leading-snug'>Bercanda Boleh, Toxic Jangan Berlebihan</h3>
+                </div>
+                <p class='text-[10px] sm:text-xs text-gray-500 leading-relaxed mt-2 sm:mt-2.5'>Bercanda itu seru, tapi tetap tahu batas dan saling menjaga perasaan.</p>
+            </div>
+
+            <div class='reveal group relative bg-zinc-900/50 border border-zinc-800/80 rounded-xl p-4 sm:p-5 overflow-hidden hover:border-red-600/50 hover:bg-zinc-900/80 transition-all duration-300'>
+                <span class='absolute top-3 right-3 sm:top-4 sm:right-4 text-[10px] sm:text-[11px] font-black text-zinc-700 group-hover:text-red-500/70 transition-colors duration-300'>06</span>
+                <div class='flex items-center gap-3 sm:gap-3.5'>
+                    <div class='h-10 w-10 sm:h-11 sm:w-11 shrink-0 rounded-lg bg-red-600/10 border border-red-600/20 text-red-500 flex items-center justify-center text-sm sm:text-base group-hover:bg-red-600 group-hover:border-red-600 group-hover:text-white group-hover:shadow-[0_0_18px_rgba(220,38,38,0.35)] transition-all duration-300'>
+                        <i class='fa-solid fa-hand-holding-heart'/>
+                    </div>
+                    <h3 class='text-xs sm:text-sm md:text-[15px] font-bold text-white uppercase tracking-wide leading-snug'>Saling Membantu di Jalan</h3>
+                </div>
+                <p class='text-[10px] sm:text-xs text-gray-500 leading-relaxed mt-2 sm:mt-2.5'>Jika ada anggota mengalami kendala, utamakan kepedulian dan kebersamaan.</p>
+            </div>
+
+            <div class='reveal group relative bg-zinc-900/50 border border-zinc-800/80 rounded-xl p-4 sm:p-5 overflow-hidden hover:border-red-600/50 hover:bg-zinc-900/80 transition-all duration-300'>
+                <span class='absolute top-3 right-3 sm:top-4 sm:right-4 text-[10px] sm:text-[11px] font-black text-zinc-700 group-hover:text-red-500/70 transition-colors duration-300'>07</span>
+                <div class='flex items-center gap-3 sm:gap-3.5'>
+                    <div class='h-10 w-10 sm:h-11 sm:w-11 shrink-0 rounded-lg bg-red-600/10 border border-red-600/20 text-red-500 flex items-center justify-center text-sm sm:text-base group-hover:bg-red-600 group-hover:border-red-600 group-hover:text-white group-hover:shadow-[0_0_18px_rgba(220,38,38,0.35)] transition-all duration-300'>
+                        <i class='fa-solid fa-helmet-safety'/>
+                    </div>
+                    <h3 class='text-xs sm:text-sm md:text-[15px] font-bold text-white uppercase tracking-wide leading-snug'>Utamakan Keselamatan Berkendara</h3>
+                </div>
+                <p class='text-[10px] sm:text-xs text-gray-500 leading-relaxed mt-2 sm:mt-2.5'>Safety first. Pulang dengan selamat lebih penting daripada cepat sampai.</p>
+            </div>
+
+            <div class='reveal group relative bg-zinc-900/50 border border-zinc-800/80 rounded-xl p-4 sm:p-5 overflow-hidden hover:border-red-600/50 hover:bg-zinc-900/80 transition-all duration-300'>
+                <span class='absolute top-3 right-3 sm:top-4 sm:right-4 text-[10px] sm:text-[11px] font-black text-zinc-700 group-hover:text-red-500/70 transition-colors duration-300'>08</span>
+                <div class='flex items-center gap-3 sm:gap-3.5'>
+                    <div class='h-10 w-10 sm:h-11 sm:w-11 shrink-0 rounded-lg bg-red-600/10 border border-red-600/20 text-red-500 flex items-center justify-center text-sm sm:text-base group-hover:bg-red-600 group-hover:border-red-600 group-hover:text-white group-hover:shadow-[0_0_18px_rgba(220,38,38,0.35)] transition-all duration-300'>
+                        <i class='fa-solid fa-traffic-light'/>
+                    </div>
+                    <h3 class='text-xs sm:text-sm md:text-[15px] font-bold text-white uppercase tracking-wide leading-snug'>Jaga Etika Saat Riding</h3>
+                </div>
+                <p class='text-[10px] sm:text-xs text-gray-500 leading-relaxed mt-2 sm:mt-2.5'>Hormati pengguna jalan lain dan patuhi aturan lalu lintas.</p>
+            </div>
+
+            <div class='reveal group relative md:col-span-2 bg-zinc-900/50 border border-zinc-800/80 rounded-xl p-4 sm:p-5 overflow-hidden hover:border-red-600/50 hover:bg-zinc-900/80 transition-all duration-300'>
+                <div class='absolute inset-y-0 left-0 w-1 bg-red-600/0 group-hover:bg-red-600 transition-all duration-300'/>
+                <div class='flex items-center gap-3 sm:gap-3.5'>
+                    <div class='h-10 w-10 sm:h-11 sm:w-11 shrink-0 rounded-lg bg-red-600/10 border border-red-600/20 text-red-500 flex items-center justify-center text-sm sm:text-base group-hover:bg-red-600 group-hover:border-red-600 group-hover:text-white group-hover:shadow-[0_0_18px_rgba(220,38,38,0.35)] transition-all duration-300'>
+                        <i class='fa-solid fa-comment-slash'/>
+                    </div>
+                    <h3 class='text-xs sm:text-sm md:text-[15px] font-bold text-white uppercase tracking-wide leading-snug'>Hindari Drama &amp; Provokasi</h3>
+                    <span class='ml-auto hidden sm:block text-[10px] font-black text-zinc-700 group-hover:text-red-500/70 transition-colors duration-300'>09</span>
+                </div>
+                <p class='text-[10px] sm:text-xs text-gray-500 leading-relaxed mt-2 sm:mt-2.5'>Selesaikan masalah dengan komunikasi, bukan emosi.</p>
+            </div>
+
+            <div class='reveal group relative md:col-span-2 rounded-xl overflow-hidden border-2 border-red-600/50 bg-gradient-to-r from-red-600/15 via-zinc-900 to-red-600/15 p-5 sm:p-7 text-center hover:shadow-[0_0_35px_rgba(220,38,38,0.2)] transition-all duration-300'>
+                <div class='absolute -top-10 -right-10 h-36 w-36 bg-red-600/10 rounded-full blur-2xl group-hover:bg-red-600/20 transition-all duration-500'/>
+                <div class='absolute -bottom-10 -left-10 h-36 w-36 bg-red-600/10 rounded-full blur-2xl group-hover:bg-red-600/20 transition-all duration-500'/>
+                <div class='relative'>
+                    <div class='flex items-center justify-center gap-3 mb-2 sm:mb-3'>
+                        <div class='h-9 w-9 sm:h-11 sm:w-11 rounded-lg bg-red-600 text-white flex items-center justify-center font-black font-sporty text-sm sm:text-base shadow-[0_0_20px_rgba(220,38,38,0.4)]'>10</div>
+                        <h3 class='text-sm sm:text-xl md:text-2xl font-black text-white uppercase font-sporty tracking-tight'>Satu Aspal, <span class='text-red-500'>Satu Keluarga</span></h3>
+                    </div>
+                    <p class='text-[10px] sm:text-xs text-gray-400 leading-relaxed max-w-xl mx-auto'>Kebersamaan, saling menghargai, dan saling mendukung adalah identitas Wacana.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class='py-16 sm:py-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto relative z-20' id='gabung'>
+        <div class='bg-gradient-to-br from-zinc-900 to-zinc-950 border border-zinc-800 rounded-2xl p-6 sm:p-8 md:p-12 shadow-2xl'>
+            <div class='grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12'>
+                
+                <div class='space-y-4 sm:space-y-6'>
+                    <span class='text-red-500 uppercase text-xs font-semibold tracking-widest block'>Gabung Sekarang</span>
+                    <h2 class='text-2xl sm:text-4xl md:text-5xl font-black text-white uppercase leading-tight font-sporty'>
+                        Siap Mengaspal <br/>Bersama Kami?
+                    </h2>
+                    <p class='text-gray-400 text-xs sm:text-sm md:text-base leading-relaxed'>
+                        Kami tidak mempermasalahkan merk, tipe, ataupun cc motor Anda. Dari standar hingga modifikasi ekstrem, pintu sekre kami selalu terbuka lebar. Masukkan nama, nomor HP aktif, dan motormu di formulir samping untuk mendaftar secara langsung ke WhatsApp pengurus kami!
+                    </p>
+                    <div class='space-y-2 sm:space-y-3 pt-2'>
+                        <div class='flex items-center gap-3 text-xs sm:text-sm text-gray-300'>
+                            <i class='fa-brands fa-whatsapp text-red-500 shrink-0'/> Data Terkirim Langsung ke 4 Admin WhatsApp
+                        </div>
+                        <div class='flex items-center gap-3 text-xs sm:text-sm text-gray-300'>
+                            <i class='fa-solid fa-check text-red-500 shrink-0'/> Relasi All Rider se-Indonesia
+                        </div>
+                        <div class='flex items-center gap-3 text-xs sm:text-sm text-gray-300'>
+                            <i class='fa-solid fa-check text-red-500 shrink-0'/> Merchandise Eksklusif Anggota Resmi
+                        </div>
+                    </div>
+                </div>
+
+                <div class='bg-zinc-900/50 border border-zinc-800 p-5 sm:p-6 md:p-8 rounded-xl'>
+                    <h3 class='text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6'>Formulir Pendaftaran Member</h3>
+                    <form class='space-y-4' id='joinForm' onsubmit='handleFormSubmit(event)'>
+                        <div>
+                            <label class='block text-[10px] uppercase tracking-wider text-gray-400 font-semibold mb-2'>Nama Lengkap</label>
+                            <input class='w-full bg-zinc-950 border border-zinc-800 text-white rounded p-2.5 sm:p-3 focus:outline-none focus:border-red-500 text-xs sm:text-sm transition-all' id='riderName' placeholder='Contoh: Budi Pratama' required='required' type='text'/>
+                        </div>
+                        
+                        <div class='grid grid-cols-1 sm:grid-cols-3 gap-4'>
+                            <div>
+                                <label class='block text-[10px] uppercase tracking-wider text-gray-400 font-semibold mb-2'>Kontak HP (WhatsApp)</label>
+                                <input class='w-full bg-zinc-950 border border-zinc-800 text-white rounded p-2.5 sm:p-3 focus:outline-none focus:border-red-500 text-xs sm:text-sm transition-all' id='riderContact' placeholder='Contoh: 0882xxxxxxxx' required='required' type='tel'/>
+                            </div>
+                            <div>
+                                <label class='block text-[10px] uppercase tracking-wider text-gray-400 font-semibold mb-2'>Motor Jenis (Tipe)</label>
+                                <input class='w-full bg-zinc-950 border border-zinc-800 text-white rounded p-2.5 sm:p-3 focus:outline-none focus:border-red-500 text-xs sm:text-sm transition-all' id='scooterModel' placeholder='Contoh: Astrea/Beat/CBR' required='required' type='text'/>
+                            </div>
+                            <div>
+                                <label class='block text-[10px] uppercase tracking-wider text-gray-400 font-semibold mb-2'>Domisili (Kota)</label>
+                                <input class='w-full bg-zinc-950 border border-zinc-800 text-white rounded p-2.5 sm:p-3 focus:outline-none focus:border-red-500 text-xs sm:text-sm transition-all' id='riderDomisili' placeholder='Contoh: Tegal/brebes/slawi' required='required' type='text'/>
+                            </div>
+                        </div>
+
+                        <button class='w-full bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider py-3 sm:py-3.5 rounded shadow-lg hover:shadow-red-600/20 transition-all duration-300 flex items-center justify-center gap-2' id='submitBtn' type='submit'>
+                            <span>Kirim Formulir</span>
+                            <i class='fa-solid fa-paper-plane' id='btnIcon'/>
+                        </button>
+                    </form>
+
+                    <div class='hidden mt-4 p-4 rounded text-xs sm:text-sm bg-green-500/10 border border-green-500/30 text-green-400 flex items-center gap-3' id='statusMessage'>
+                        <i class='fa-solid fa-circle-check text-lg shrink-0'/>
+                        <div>
+                            <span class='font-bold'>Pendaftaran Berhasil Dikirim!</span> Data Anda telah dikirim via WhatsApp ke 4 admin Wacana Style. Selamat bergabung, Bro!
+                        </div>
+                    </div>
+
+                    <div class='hidden mt-4 p-4 rounded text-xs sm:text-sm bg-red-500/10 border border-red-500/30 text-red-400 flex items-center gap-3' id='errorMessage'>
+                        <i class='fa-solid fa-circle-exclamation text-lg shrink-0'/>
+                        <div>
+                            <span class='font-bold'>Gagal Mengirim!</span> Terjadi kesalahan saat menghubungi WhatsApp. Pastikan browser mengizinkan popup, lalu coba lagi.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <b:section class='main' id='blogger-default-section' showaddelement='yes'/>
+
+    <section class='py-12 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto border-t border-zinc-900 relative z-20'>
+        <h3 class='text-xs font-semibold tracking-widest text-red-500 uppercase mb-6 text-center'>Calon Anggota Terdaftar Terbaru (Sesi Ini)</h3>
+        <div class='flex flex-wrap justify-center gap-3 sm:gap-4' id='ridersList'>
+            <div class='bg-zinc-900/60 border border-zinc-800/80 px-3 py-2.5 sm:px-4 sm:py-3 rounded-lg flex items-center gap-2 sm:gap-3'>
+                <div class='h-8 w-8 rounded-full bg-red-600/20 text-red-400 flex items-center justify-center font-bold text-xs sm:text-sm'>A</div>
+                <div>
+                    <div class='text-xs font-bold text-white'>Andika Prasetyo</div>
+                    <div class='text-[9px] sm:text-[10px] text-gray-400'>Beat Street &#8226; 0812-xxxx-xxxx</div>
+                </div>
+            </div>
+            <div class='bg-zinc-900/60 border border-zinc-800/80 px-3 py-2.5 sm:px-4 sm:py-3 rounded-lg flex items-center gap-2 sm:gap-3'>
+                <div class='h-8 w-8 rounded-full bg-red-600/20 text-red-400 flex items-center justify-center font-bold text-xs sm:text-sm'>M</div>
+                <div>
+                    <div class='text-xs font-bold text-white'>Maulana Yusuf</div>
+                    <div class='text-[9px] sm:text-[10px] text-gray-400'>Aerox 155 &#8226; 0882-xxxx-xxxx</div>
+                </div>
+            </div>
+            <div class='bg-zinc-900/60 border border-zinc-800/80 px-3 py-2.5 sm:px-4 sm:py-3 rounded-lg flex items-center gap-2 sm:gap-3'>
+                <div class='h-8 w-8 rounded-full bg-red-600/20 text-red-400 flex items-center justify-center font-bold text-xs sm:text-sm'>R</div>
+                <div>
+                    <div class='text-xs font-bold text-white'>Rizky Ramadhan</div>
+                    <div class='text-[9px] sm:text-[10px] text-gray-400'>Vespa Sprint &#8226; 0895-xxxx-xxxx</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class='bg-black py-12 sm:py-16 px-4 sm:px-6 md:px-12 border-t border-zinc-900 relative z-20' id='kontak'>
+        <div class='max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left'>
+            <div>
+                <div class='flex items-center justify-center md:justify-start gap-2 mb-4'>
+                    <img alt='Wacana Style Logo' class='h-8 w-auto object-contain' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhemceeHBQXNyIi8khxPDHco4s7LWIk1JhFR2AOTqdOvP3CMUNmfbncA-ziPUhX0KCQKtJGGWra8jkWZewlJbdeBt3axSPqTag1cMB6v1J8PY7RD55d-VHRFK9Ns-5xdF7g6RHB5hGn-tsWBl-ekT8ReMcjtiiLPYq5vHS6V2O9D76hK14/s1600/s%20(1).png'/>
+                    <span class='text-base sm:text-lg font-black tracking-widest text-white uppercase font-sporty'>
+                        Wacana<span class='text-red-600'>Style</span>
+                    </span>
+                </div>
+                <p class='text-[11px] sm:text-xs text-gray-500 max-w-sm leading-relaxed'>
+                    &#169; 2026 Wacana Style - All Motor Community. Seluruh Hak Cipta Dilindungi. Kumpul seru, turing aman, pulang selamat.
+                </p>
+            </div>
+            <div class='flex items-center justify-center gap-6'>
+                <a class='text-gray-400 hover:text-red-500 transition-colors text-base sm:text-lg' href='#'><i class='fa-brands fa-instagram'/></a>
+                <a class='text-gray-400 hover:text-red-500 transition-colors text-base sm:text-lg' href='#'><i class='fa-brands fa-youtube'/></a>
+                <a class='text-gray-400 hover:text-red-500 transition-colors text-base sm:text-lg' href='https://www.tiktok.com/@wcnastyle?is_from_webapp=1&amp;sender_device=pc'><i class='fa-brands fa-tiktok'/></a>
+                <a class='text-gray-400 hover:text-red-500 transition-colors text-base sm:text-lg' href='#'><i class='fa-brands fa-whatsapp'/></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== LIGHTBOX GALERI ===== -->
+    <div class='lightbox' id='lightbox' onclick='closeLightbox()'>
+        <button aria-label='Tutup' class='lb-close' onclick='event.stopPropagation(); closeLightbox()'><i class='fa-solid fa-xmark'/></button>
+        <span class='lb-counter' id='lbCounter'>1 / 12</span>
+        <button aria-label='Foto sebelumnya' class='lb-btn lb-prev' onclick='event.stopPropagation(); changePhoto(-1)'><i class='fa-solid fa-chevron-left'/></button>
+        <img alt='Foto Galeri Wacana Style' id='lbImage' src=''/>
+        <div class='lb-caption' id='lbCaption'/>
+        <button aria-label='Foto berikutnya' class='lb-btn lb-next' onclick='event.stopPropagation(); changePhoto(1)'><i class='fa-solid fa-chevron-right'/></button>
+    </div>
+
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+
+        // Fungsi Toggle untuk Drawer Sidebar Menu (Berlaku Desktop dan HP)
+        function toggleMenu() {
+            const drawer = document.getElementById('sideDrawer');
+            const overlay = document.getElementById('drawerOverlay');
+            
+            if (drawer.classList.contains('translate-x-full')) {
+                // Tampilkan Drawer
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+                setTimeout(() => { overlay.classList.add('opacity-100'); }, 10);
+            } else {
+                // Sembunyikan Drawer
+                drawer.classList.add('translate-x-full');
+                overlay.classList.remove('opacity-100');
+                setTimeout(() => { overlay.classList.add('hidden'); }, 300);
+            }
+        }
+
+        // Animasi Scroll Reveal untuk Kartu Peraturan (IntersectionObserver dengan staggered delay)
+        (function() {
+            var revealEls = document.querySelectorAll('.reveal');
+            if (!('IntersectionObserver' in window)) {
+                revealEls.forEach(function(el) { el.classList.add('revealed'); });
+                return;
+            }
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry, i) {
+                    if (entry.isIntersecting) {
+                        var el = entry.target;
+                        var index = Array.prototype.indexOf.call(revealEls, el);
+                        setTimeout(function() {
+                            el.classList.add('revealed');
+                        }, (index % 4) * 80);
+                        observer.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+            revealEls.forEach(function(el) { observer.observe(el); });
+        })();
+
+        // ===== GALERI LIGHTBOX =====
+        var galleryPhotos = [
+            { src: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=1200&auto=format&fit=crop", caption: "Kopdar Mingguan Wacana Style" },
+            { src: "https://images.unsplash.com/photo-1558980664-10e717b3ff0d?q=80&w=800&auto=format&fit=crop", caption: "Touring Senja" },
+            { src: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=800&auto=format&fit=crop", caption: "Ngopi Bareng" },
+            { src: "https://images.unsplash.com/photo-1525160354320-d8e92641c563?q=80&w=800&auto=format&fit=crop", caption: "Barisan Motor" },
+            { src: "https://images.unsplash.com/photo-1558980395-be2a5fc71c40?q=80&w=800&auto=format&fit=crop", caption: "Aspal Malam" },
+            { src: "https://images.unsplash.com/photo-1518987048-93e29699e79a?q=80&w=1400&auto=format&fit=crop", caption: "Touring Pantura" },
+            { src: "https://images.unsplash.com/photo-1502744688674-c619d1586c9e?q=80&w=800&auto=format&fit=crop", caption: "Warung Kopi" },
+            { src: "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?q=80&w=800&auto=format&fit=crop", caption: "Camping Bareng" },
+            { src: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=800&auto=format&fit=crop", caption: "Detail Motor" },
+            { src: "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?q=80&w=800&auto=format&fit=crop", caption: "Satu Aspal" },
+            { src: "https://images.unsplash.com/photo-1482951164281-2c9a11d5a712?q=80&w=800&auto=format&fit=crop", caption: "Kopdar Sore" },
+            { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop", caption: "Sampai Jumpa" }
+        ];
+        var lbIndex = 0;
+
+        function openLightbox(index) {
+            lbIndex = index;
+            updateLightbox();
+            document.getElementById('lightbox').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function changePhoto(dir) {
+            lbIndex = (lbIndex + dir + galleryPhotos.length) % galleryPhotos.length;
+            updateLightbox();
+        }
+
+        function updateLightbox() {
+            var photo = galleryPhotos[lbIndex];
+            document.getElementById('lbImage').src = photo.src;
+            document.getElementById('lbImage').alt = photo.caption;
+            document.getElementById('lbCaption').textContent = photo.caption;
+            document.getElementById('lbCounter').textContent = (lbIndex + 1) + ' / ' + galleryPhotos.length;
+        }
+
+        // Navigasi keyboard: Esc untuk tutup, panah kiri/kanan untuk pindah foto
+        document.addEventListener('keydown', function(e) {
+            var lb = document.getElementById('lightbox');
+            if (lb.classList.contains('open')) {
+                if (e.key === 'Escape') { closeLightbox(); }
+                else if (e.key === 'ArrowLeft') { changePhoto(-1); }
+                else if (e.key === 'ArrowRight') { changePhoto(1); }
+            }
+        });
+
+        // Daftar Admin WhatsApp Wacana Style (format internasional tanpa +)
+        var waAdmins = [
+            { nama: "Putra",  nomor: "6287814693521" },
+            { nama: "Dafa",   nomor: "6289520273357" },
+            { nama: "Arinta", nomor: "6283871992716" },
+            { nama: "Indra",  nomor: "6288227908397" }
+        ];
+
+        // Fungsi Submit Formulir Terkoneksi WhatsApp (kirim ke 4 Admin sekaligus)
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const nameInput = document.getElementById('riderName');
+            const contactInput = document.getElementById('riderContact');
+            const scooterInput = document.getElementById('scooterModel');
+            const domisiliInput = document.getElementById('riderDomisili');
+            const submitBtn = document.getElementById('submitBtn');
+            const btnIcon = document.getElementById('btnIcon');
+            const statusMessage = document.getElementById('statusMessage');
+            const errorMessage = document.getElementById('errorMessage');
+
+            const name = nameInput.value.trim();
+            const contact = contactInput.value.trim();
+            const scooter = scooterInput.value.trim();
+            const domisili = domisiliInput.value.trim();
+
+            if (name && contact && scooter && domisili) {
+                // Loading State UI
+                submitBtn.disabled = true;
+                submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+                btnIcon.className = "fa-solid fa-circle-notch animate-spin";
+                statusMessage.classList.add('hidden');
+                errorMessage.classList.add('hidden');
+
+                // Mempersiapkan format pesan WhatsApp lengkap dengan data calon member
+                var waMessage = "🚨 *WACANA STYLE - PENDAFTARAN BARU* 🚨\n\n" +
+                                "👤 *Nama:* " + name + "\n" +
+                                "📞 *Kontak HP:* " + contact + "\n" +
+                                "🏍️ *Jenis Motor:* " + scooter + "\n" +
+                                "📍 *Domisili:* " + domisili + "\n\n" +
+                                "_Ayo segera proses dan hubungi calon anggota baru ini!_";
+
+                // Encode pesan agar aman di URL wa.me
+                var encodedMessage = encodeURIComponent(waMessage);
+
+                // Buka WhatsApp ke semua admin secara bertahap agar tidak diblokir popup sekaligus
+                waAdmins.forEach(function(admin, index) {
+                    setTimeout(function() {
+                        window.open(
+                            "https://wa.me/" + admin.nomor + "?text=" + encodedMessage,
+                            "_blank"
+                        );
+                    }, index * 700);
+                });
+
+                // Berhasil dikirim (notifikasi) - data dianggap terkirim karena membuka WA admin
+                setTimeout(function() {
+                    statusMessage.classList.remove('hidden');
+                    
+                    // Tambahkan secara instan ke tampilan riwayat pendaftaran di bawah (Warna Merah)
+                    const list = document.getElementById('ridersList');
+                    const initial = name.charAt(0).toUpperCase();
+
+                    const riderDiv = document.createElement('div');
+                    riderDiv.className = "bg-zinc-900/60 border border-red-600/30 px-3 py-2.5 sm:px-4 sm:py-3 rounded-lg flex items-center gap-2 sm:gap-3 animate-pulse";
+                    riderDiv.innerHTML = `
+                        <div class="h-8 w-8 rounded-full bg-red-600 text-white flex items-center justify-center font-bold text-xs sm:text-sm">` + initial + `</div>
+                        <div>
+                            <div class="text-xs font-bold text-white">` + name + `</div>
+                            <div class="text-[9px] sm:text-[10px] text-gray-300">` + scooter + ` • ` + domisili + ` • ` + contact.substring(0, 4) + `-xxxx-xxxx</div>
+                        </div>
+                    `;
+                    list.insertBefore(riderDiv, list.firstChild);
+
+                    // Reset form input
+                    nameInput.value = '';
+                    contactInput.value = '';
+                    scooterInput.value = '';
+                    domisiliInput.value = '';
+
+                    setTimeout(function() {
+                        riderDiv.classList.remove('animate-pulse');
+                        riderDiv.style.borderColor = "rgb(39 39 42)";
+                    }, 3000);
+
+                    setTimeout(function() {
+                        statusMessage.classList.add('hidden');
+                    }, 8000);
+
+                    // Reset Button State
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                    btnIcon.className = "fa-solid fa-paper-plane";
+                }, (waAdmins.length * 700) + 200);
+            }
+        }
+        /* ]]> */
+    </script>
+</body>
+</html>
